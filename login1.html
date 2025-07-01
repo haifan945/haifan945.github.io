@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Hui-登录</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- hui-style -->
+	<link rel="stylesheet" type="text/css" href="static/css/base.css" />
+	<!-- hui-login -->
+	<link rel="stylesheet" type="text/css" href="static/css/login.css">
+
+</head>
+
+<body>
+	<div class="hui-login">
+		<!-- main -->
+		<div class="hui-login-mian">
+			<!-- login-header -->
+			<div class="hui-login-header">
+				<div class="hui-login-logo"><img src="static/images/login-logo.png" /></div>
+				<h2 class="hui-login-title">HuiAdmin管理系统</h2>
+			</div>
+			<!-- /login-header -->
+
+			<div class="hui-login-body hui-form">
+
+				<div class="hui-login-box hui-this">
+					<div class="hui-form-item">
+						<label class="hui-icon hui-iconusercenter" for="username"></label>
+						<input type="text" name="username" id="1username" placeholder="用户名" class="hui-input" />
+					</div>
+
+					<div class="hui-form-item">
+						<label class="hui-icon hui-iconpassword1" for="password"></label>
+						<input type="password" name="password" id="1password" placeholder="密码" class="hui-input" />
+					</div>
+
+					<div class="hui-form-item">
+						<div class="hui-row">
+							<div class="hui-col-md7">
+								<label class="hui-icon hui-iconziyingyewu" for="vercode"></label>
+								<input type="text" name="password" id="1vercode" placeholder="验证码" class="hui-input" />
+							</div>
+							<div class="hui-col-md5"> <img src="static/images/captcha.gif" class="hui-login-codeimg"
+									alt="验证码"> </div>
+						</div>
+					</div>
+
+					<div class="hui-form-item">
+						<div class="hui-row">
+							<div class="hui-col-md9">
+								<input type="checkbox" name="remember" id="remember" title="记住密码"><label
+									class="hui-rememb" for="remember">记住密码</label>
+							</div>
+							<div class="hui-col-md3">
+								<a href="#" title="忘记密码" class="hui-forgetpwd">忘记密码?</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="hui-form-item">
+						<button type="button" class="hui-btn hui-btn-fluid">登录</button>
+					</div>
+				</div>
+
+			</div>
+			<!-- /login-body -->
+		</div>
+		<!-- /main -->
+		<!-- footer -->
+		<footer class="hui-login-footer">版权所有内蒙古海凡科技 Copyright © 2005-2020 .All rights reserved
+			京ICP备11005637号</footer>
+		<!-- /footer -->
+	</div>
+	<!-- ./wrapper -->
+	<!--公共部分开始--js-->
+
+	<script src="hui/js/jquery-2.2.3.min.js"></script>
+	<!-- 背景动画星星闪烁 -->
+	<script>
+		window.onload = function () {
+			var screenW = document.documentElement.clientWidth;
+			var screenH = document.documentElement.clientHeight;
+			for (var i = 0; i < 200; i++) {
+				var span = document.createElement('span');
+				document.body.appendChild(span);
+				var x = parseInt(Math.random() * screenW);
+				var y = parseInt(Math.random() * screenH);
+				span.style.left = x + 'px';
+				span.style.top = y + 'px';
+				var scale = Math.random() * 1.6;
+				span.style.transform = 'scale(' + scale + ', ' + scale + ')';
+				var rate = Math.random() * 1.5;
+				span.style.animationDelay = rate + 's';
+			}
+		}
+		$(document).ready(function () {
+			$('.hui-btn').click(function () {
+				window.location.href = 'index.html'
+			})
+		});
+	</script>
+
+</body>
+
+</html>
