@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>huiAdmin-动画</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/base.css" />
+
+		<style type="text/css">
+			/* 这段样式只是用于演示 */
+			#component-anim .hui-card-body {}
+
+			#component-anim .component-anim-demo {
+
+				font-size: 0;
+			}
+
+			#component-anim .component-anim-demo li {
+				display: inline-block;
+				vertical-align: middle;
+				width: 127px;
+				line-height: 25px;
+				padding: 20px 0;
+				margin-right: -1px;
+				margin-bottom: -1px;
+				border: 1px solid #e2e2e2;
+				font-size: 14px;
+				text-align: center;
+				color: #666;
+				transition: all .3s;
+				-webkit-transition: all .3s;
+			}
+
+			#component-anim .component-anim-demo li .hui-icon {
+				display: inline-block;
+				font-size: 36px;
+			}
+
+			#component-anim .component-anim-demo li .fontclass {
+				display: none;
+			}
+
+			#component-anim .component-anim-demo li .name {
+				color: #c2c2c2;
+			}
+
+			#component-anim .component-anim-demo li:hover {
+				background-color: #f2f2f2;
+				color: #000;
+			}
+
+			#component-anim .component-anim-demo li {
+				width: 222px;
+			}
+
+			#component-anim .component-anim-demo .hui-anim {
+				width: 150px;
+				height: 150px;
+				line-height: 150px;
+				margin: 0 auto 10px;
+				text-align: center;
+				background-color: #4040ff;
+				cursor: pointer;
+				color: #FFF;
+				border-radius: 50%;
+
+			}
+
+			.hui-anim {
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				position: relative;
+			}
+
+			.hui-loop {
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite
+			}
+
+
+			.hui-rotate {
+				-webkit-animation-name: hui-rotate;
+				animation-name: hui-rotate;
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-timing-function: linear;
+				animation-timing-function: linear
+			}
+
+			/* 动画名称定义 */
+			.hui-rotate {
+				-webkit-animation-name: hui-rotate;
+				animation-name: hui-rotate;
+			}
+
+			.hui-up {
+				-webkit-animation-name: hui-up;
+				animation-name: hui-up
+			}
+
+			.hui-upbit {
+				-webkit-animation-name: hui-upbit;
+				animation-name: hui-upbit
+			}
+
+			.hui-downbit {
+				-webkit-animation-name: hui-downbit;
+				animation-name: hui-downbit
+			}
+
+			.hui-right {
+				-webkit-animation-name: hui-right;
+				animation-name: hui-right
+			}
+
+			.hui-left {
+				-webkit-animation-name: hui-left;
+				animation-name: hui-left
+			}
+
+			.hui-scale {
+				-webkit-animation-name: hui-scale;
+				animation-name: hui-scale
+			}
+
+			.hui-scale-spring {
+				-webkit-animation-name: hui-scale-spring;
+				animation-name: hui-scale-spring
+			}
+
+			.hui-fadein {
+				-webkit-animation-name: hui-fadein;
+				animation-name: hui-fadein
+			}
+
+			.hui-fadeout {
+				-webkit-animation-name: hui-fadeout;
+				animation-name: hui-fadeout
+			}
+
+			.hui-flash {
+				-webkit-animation-name: hui-flash;
+				animation-name: hui-flash
+			}
+
+			.hui-shake {
+				-webkit-animation-name: hui-shake;
+				animation-name: hui-shake
+			}
+
+			.hui-bounceIn {
+				-webkit-animation-name: hui-bounceIn;
+				animation-name: hui-bounceIn
+			}
+
+			.hui-bounceInDown {
+				-webkit-animation-name: hui-bounceInDown;
+				animation-name: hui-bounceInDown
+			}
+
+			/* -- */
+			.hui-bounceInLeft {
+				-webkit-animation-name: hui-bounceInLeft;
+				animation-name: hui-bounceInLeft
+			}
+
+			.hui-bounceInRight {
+				-webkit-animation-name: hui-bounceInRight;
+				animation-name: hui-bounceInRight
+			}
+
+			.hui-bounceInUp {
+				-webkit-animation-name: hui-bounceInUp;
+				animation-name: hui-bounceInUp
+			}
+
+			.hui-bounceOut {
+				-webkit-animation-name: hui-bounceOut;
+				animation-name: hui-bounceOut
+			}
+
+			.hui-flip {
+				-webkit-animation-name: hui-flip;
+				animation-name: hui-flip
+			}
+
+			.hui-bounce-left {
+				-webkit-animation-name: hui-bounce-left;
+				animation-name: hui-bounce-left
+			}
+
+			.hui-bounce-right {
+				-webkit-animation-name: hui-bounce-right;
+				animation-name: hui-bounce-right
+			}
+
+			/* 左右移动 */
+			.hui-move {
+				-webkit-animation-name: hui-move;
+				animation-name: hui-move;
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+				-webkit-animation-direction: alternate;
+				animation-direction: alternate;
+				-webkit-animation-timing-function: ease-in-out;
+				animation-timing-function: ease-in-out;
+
+			}
+
+			.show-shadow {
+				-webkit-animation-name: show-shadow;
+				animation-name: show-shadow;
+				background: none !important;
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+				color: #4040ff !important;
+				font-size: 24px;
+
+			}
+		</style>
+	</head>
+	<body class="hui-layout-admin site-demo">
+		<!-- Main content -->
+		<section class="hui-fluid" id="component-anim">
+			<div class="hui-row hui-col-space15">
+				<div class="hui-col-md12">
+					<div class="card">
+						<div class="card-header a">点击演示动画</div>
+
+						<div class="card-body">
+							<ul class="component-anim-demo">
+								<li>
+									<div class="hui-anim" data-anim="hui-rotate">360度旋转</div>
+									<div class="code">hui-rotate</div>
+								</li>
+								<li>
+									<div class="hui-anim " data-anim="hui-up">从最底部往上滑入</div>
+									<div class="code">hui-up</div>
+								</li>
+								<li>
+									<div class="hui-anim" data-anim="hui-upbit">微微向上滑入</div>
+									<div class="code">hui-upbit</div>
+								</li>
+								<li>
+									<div class="hui-anim" data-anim="hui-downbit">微微向下滑入</div>
+									<div class="code">hui-downbit</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-right">微微向右滑</div>
+									<div class="code">hui-right</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-left">微微向左滑</div>
+									<div class="code">hui-left</div>
+								</li>
+
+
+								<li>
+									<div class="hui-anim" data-anim="hui-scale">平滑放大</div>
+									<div class="code">hui-scale</div>
+								</li>
+								<li>
+									<div class="hui-anim" data-anim="hui-scale-spring">弹簧式放大</div>
+									<div class="code">hui-scale-spring</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-fadein">渐显</div>
+									<div class="code">hui-fadein</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-fadeout">渐隐</div>
+									<div class="code">hui-fadeout</div>
+								</li>
+
+
+								<li>
+									<div class="hui-anim" data-anim="hui-flash">闪烁</div>
+									<div class="code">hui-flash</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-shake">摇摆</div>
+									<div class="code">hui-shake</div>
+								</li>
+								<li>
+									<div class="hui-anim" data-anim="hui-bounceIn">弹出</div>
+									<div class="code">hui-bounceIn</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-bounceInDown">从上面弹出</div>
+									<div class="code">hui-bounceInDown</div>
+								</li>
+								<li>
+
+									<div class="hui-anim" data-anim="hui-bounceInLeft">从左面弹出</div>
+									<div class="code">hui-bounceInLeft</div>
+								</li>
+
+
+								<li>
+
+									<div class="hui-anim" data-anim="hui-bounceInRight">从右面弹出</div>
+									<div class="code">hui-bounceInRight</div>
+								</li>
+
+								<li>
+
+									<div class="hui-anim" data-anim="hui-bounceInUp">从下面弹出</div>
+									<div class="code">hui-bounceInUp</div>
+								</li>
+
+								<li>
+
+									<div class="hui-anim" data-anim="hui-bounceOut">弹走消失</div>
+									<div class="code">hui-bounceOut</div>
+								</li>
+
+
+								<li>
+
+									<div class="hui-anim" data-anim="hui-flip">翻转</div>
+									<div class="code">hui-flip</div>
+								</li>
+
+
+								<li>
+
+									<div class="hui-anim" data-anim="hui-bounce-left">渐显向左移动</div>
+									<div class="code">hui-bounce-left</div>
+								</li>
+
+
+								<li>
+
+									<div class="hui-anim" data-anim="hui-bounce-right">渐显向右移动</div>
+									<div class="code">hui-bounce-right</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="hui-move">位置移动</div>
+									<div class="code">hui-move</div>
+								</li>
+
+								<li>
+									<div class="hui-anim" data-anim="show-shadow">文字投影闪烁</div>
+									<div class="code">show-shadow</div>
+								</li>
+
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- jquery2.2 -->
+		<script src="../static/js/jquery/jquery-2.2.3.min.js"></script>
+		<script src="../static/js/pace/pace.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#component-anim .component-anim-demo .hui-anim').on('click', function() {
+					var othis = $(this),
+						anim = othis.data('anim')
+					/* 停止循环 */
+					if (othis.hasClass('hui-loop')) {
+						return othis.removeClass(anim);
+					}
+					othis.removeClass(anim);
+					setTimeout(function() {
+						othis.addClass(anim);
+					});
+
+					/* 恢复渐隐 */
+					if (anim === 'hui-fadeout') {
+						setTimeout(function() {
+							othis.removeClass(anim);
+						}, 1300);
+					}
+
+					/* 恢复渐隐 */
+					if (anim === 'hui-bounceOut') {
+						setTimeout(function() {
+							othis.removeClass(anim);
+						}, 1300);
+					}
+
+				});
+			});
+		</script>
+	</body>
+</html>

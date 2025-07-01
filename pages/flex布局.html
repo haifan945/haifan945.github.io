@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../static/css/base.css" />
+    <style type="text/css">
+        body {
+            background-color: #f7f7f7;
+        }
+
+        .hui-flex {
+            background-color: #f7f7f7;
+        }
+
+        .hui-height {
+            height: 300px;
+        }
+
+        .flex-demo {
+            width: 150px;
+            height: 50px;
+            margin: 4px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #007DDB;
+            color: #FFFFFF;
+        }
+
+        .explain {
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body class="hui-layout-admin">
+    <!-- Main content -->
+    <section class="hui-fluid">
+        <div class="hui-row hui-col-space15">
+            <div class="hui-col-md12">
+                <blockquote class="hui-elem-quote">flex布局demo。</blockquote>
+                <!-- 决定主轴的方向 -->
+                <div class="hui-card">
+                    <div class="hui-card-body">
+                        <fieldset class="hui-elem-field hui-field-title" style="margin-top: 20px;">
+                            <legend>决定主轴的方向</legend>
+                            <legend>使用<span
+                                    class="hui-color-red">.hui-flex</span>类名创建一个flexbox容器，并将直接子元素转换为flex项目。Flex容器和项目可以通过其他flex属性进行进一步修改。
+                            </legend>
+                        </fieldset>
+                        <div class="hui-row hui-col-space12">
+                            <div class="hui-col-md3">
+                                <div class="hui-flex hui-flex-row">
+                                    <div class="flex-demo">hui-flex-row</div>
+                                    <div class="flex-demo">hui-flex-row</div>
+                                    <div class="flex-demo">hui-flex-row</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md3">
+                                <div class="hui-flex hui-flex-column hui-align-center">
+                                    <div class="flex-demo">hui-flex-column</div>
+                                    <div class="flex-demo">hui-flex-column</div>
+                                    <div class="flex-demo">hui-flex-column</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md3">
+                                <div class="hui-flex hui-flex-row-reverse">
+                                    <div class="flex-demo">hui-flex-row-reverse</div>
+                                    <div class="flex-demo">hui-flex-row-reverse</div>
+                                    <div class="flex-demo">hui-flex-row-reverse</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md3">
+                                <div class="hui-flex hui-flex-column-reverse hui-align-center">
+                                    <div class="flex-demo">hui-flex-column-reverse</div>
+                                    <div class="flex-demo">hui-flex-column-reverse</div>
+                                    <div class="flex-demo">hui-flex-column-reverse</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 定义换行情况 -->
+                <div class="hui-card">
+                    <div class="hui-card-body">
+                        <fieldset class="hui-elem-field hui-field-title" style="margin-top: 20px;">
+                            <legend>定义换行情况</legend>
+                        </fieldset>
+
+                        <div class="hui-row hui-col-space12">
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-flex-nowrap">
+                                    <div class="flex-demo">hui-flex-nowrap</div>
+                                    <div class="flex-demo">hui-flex-nowrap</div>
+                                    <div class="flex-demo">hui-flex-nowrap</div>
+                                    <div class="flex-demo">hui-flex-nowrap</div>
+                                    <div class="flex-demo">hui-flex-nowrap</div>
+                                    <div class="flex-demo">hui-flex-nowrap</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-flex-wrap">
+                                    <div class="flex-demo">hui-flex-wrap</div>
+                                    <div class="flex-demo">hui-flex-wrap</div>
+                                    <div class="flex-demo">hui-flex-wrap</div>
+                                    <div class="flex-demo">hui-flex-wrap</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-flex-wrap-reverse">
+                                    <div class="flex-demo">hui-flex-wrap-reverse</div>
+                                    <div class="flex-demo">hui-flex-wrap-reverse</div>
+                                    <div class="flex-demo">hui-flex-wrap-reverse</div>
+                                    <div class="flex-demo">hui-flex-wrap-reverse</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 定义项目在主轴上的对齐方式 -->
+                <div class="hui-card">
+                    <div class="hui-card-body">
+                        <fieldset class="hui-elem-field hui-field-title" style="margin-top: 20px;">
+                            <legend>定义项目在主轴上的对齐方式</legend>
+                        </fieldset>
+
+                        <div class="hui-row hui-col-space12">
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-justify-start">
+                                    <div class="flex-demo">hui-justify-start</div>
+                                    <div class="flex-demo">hui-justify-start</div>
+                                    <div class="flex-demo">hui-justify-start</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-justify-end">
+                                    <div class="flex-demo">hui-justify-end</div>
+                                    <div class="flex-demo">hui-justify-end</div>
+                                    <div class="flex-demo">hui-justify-end</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-justify-center">
+                                    <div class="flex-demo">hui-justify-center</div>
+                                    <div class="flex-demo">hui-justify-center</div>
+                                    <div class="flex-demo">hui-justify-center</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-justify-between">
+                                    <div class="flex-demo">hui-justify-between</div>
+                                    <div class="flex-demo">hui-justify-between</div>
+                                    <div class="flex-demo">hui-justify-between</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-flex hui-justify-around">
+                                    <div class="flex-demo">hui-justify-around</div>
+                                    <div class="flex-demo">hui-justify-around</div>
+                                    <div class="flex-demo">hui-justify-around</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 定义在交叉轴上的对齐方式 -->
+                <div class="hui-card">
+                    <div class="hui-card-body">
+                        <fieldset class="hui-elem-field hui-field-title" style="margin-top: 20px;">
+                            <legend>定义在交叉轴上的对齐方式</legend>
+                        </fieldset>
+
+                        <div class="hui-row hui-col-space12">
+                            <div class="hui-col-md4">
+                                <div class="hui-height hui-flex hui-align-start">
+                                    <div class="flex-demo">hui-align-start</div>
+                                    <div class="flex-demo">hui-align-start</div>
+                                    <div class="flex-demo">hui-align-start</div>
+                                    <div class="flex-demo">hui-align-start</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-end">
+                                    <div class="flex-demo">hui-align-end</div>
+                                    <div class="flex-demo">hui-align-end</div>
+                                    <div class="flex-demo">hui-align-end</div>
+                                    <div class="flex-demo">hui-align-end</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-center">
+                                    <div class="flex-demo">hui-align-center</div>
+                                    <div class="flex-demo" style="height: 80px;">hui-align-center</div>
+                                    <div class="flex-demo">hui-align-center</div>
+                                    <div class="flex-demo" style="height: 120px;">hui-align-center</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-baseline">
+                                    <div class="flex-demo">hui-align-baseline</div>
+                                    <div class="flex-demo" style="padding-top: 40px;">hui-align-baseline</div>
+                                    <div class="flex-demo">hui-align-baseline</div>
+                                    <div class="flex-demo" style="padding-top: 60px;">hui-align-baseline</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-stretch">
+                                    <div class="flex-demo" style="height: auto;">hui-align-stretch</div>
+                                    <div class="flex-demo" style="height: auto;">hui-align-stretch</div>
+                                    <div class="flex-demo" style="height: auto;">hui-align-stretch</div>
+                                    <div class="flex-demo" style="height: auto;">hui-align-stretch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 定义多根轴线的对齐方式 -->
+                <div class="hui-card">
+                    <div class="hui-card-body">
+                        <fieldset class="hui-elem-field hui-field-title" style="margin-top: 20px;">
+                            <legend>定义多根轴线的对齐方式</legend>
+                        </fieldset>
+
+                        <div class="hui-row hui-col-space12">
+                            <div class="hui-col-md4">
+                                <div class="hui-height hui-flex hui-flex-wrap hui-align-content-start">
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                    <div class="flex-demo">hui-align-content-start</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-flex-wrap hui-align-content-end">
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                    <div class="flex-demo">hui-align-content-end</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-flex-wrap hui-align-content-center">
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                    <div class="flex-demo">hui-align-content-center</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-flex-wrap hui-align-content-between">
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                    <div class="flex-demo">hui-align-content-between</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-flex-wrap hui-align-content-around">
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                    <div class="flex-demo">hui-align-content-around</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-flex-wrap hui-align-content-stretch">
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                    <div class="flex-demo">hui-align-content-stretch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 允许单个项目与其他项目有不一样的对齐方式 -->
+                <div class="hui-card">
+                    <div class="hui-card-body">
+                        <fieldset class="hui-elem-field hui-field-title" style="margin-top: 20px;">
+                            <legend>允许单个项目与其他项目有不一样的对齐方式</legend>
+                        </fieldset>
+
+                        <div class="hui-row hui-col-space12">
+                            <div class="hui-col-md4">
+                                <div class="hui-height hui-flex hui-align-center">
+                                    <div class="flex-demo hui-align-self-auto">hui-align-self-auto</div>
+                                    <div class="flex-demo" style="height: 80px;">2</div>
+                                    <div class="flex-demo">3</div>
+                                    <div class="flex-demo" style="height: 120px;">4</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-center">
+                                    <div class="flex-demo hui-align-self-start">hui-align-self-start</div>
+                                    <div class="flex-demo" style="height: 80px;">2</div>
+                                    <div class="flex-demo">3</div>
+                                    <div class="flex-demo" style="height: 120px;">4</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-center">
+                                    <div class="flex-demo hui-align-self-end">hui-align-self-end</div>
+                                    <div class="flex-demo" style="height: 80px;">2</div>
+                                    <div class="flex-demo">3</div>
+                                    <div class="flex-demo" style="height: 120px;">4</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-start">
+                                    <div class="flex-demo hui-align-self-center">hui-align-self-center</div>
+                                    <div class="flex-demo" style="height: 80px;">2</div>
+                                    <div class="flex-demo">3</div>
+                                    <div class="flex-demo" style="height: 120px;">4</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-center">
+                                    <div class="flex-demo hui-align-self-baseline">hui-align-self-baseline</div>
+                                    <div class="flex-demo" style="height: 80px;">2</div>
+                                    <div class="flex-demo">3</div>
+                                    <div class="flex-demo" style="height: 120px;">4</div>
+                                </div>
+                            </div>
+                            <div class="hui-col-md4 ">
+                                <div class="hui-height hui-flex hui-align-center">
+                                    <div class="flex-demo hui-align-self-stretch" style="height: auto;">
+                                        hui-align-self-stretch</div>
+                                    <div class="flex-demo" style="height: 80px;">2</div>
+                                    <div class="flex-demo">3</div>
+                                    <div class="flex-demo" style="height: 120px;">4</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>huiAdminPro</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+	<link rel="stylesheet" href="../hui/css/base.css" />
+	<style>
+		p {
+			padding-top: 24px;
+			padding-bottom: 24px;
+		}
+	</style>
+</head>
+
+<body class="hui-layout-admin">
+	<section class="hui-fluid">
+		<!-- Table -->
+		<fieldset class="hui-elem-field field-title">
+			<legend>常规用法</legend>
+		</fieldset>
+		<table class="hui-table">
+			<!--head-->
+			<thead>
+				<tr>
+					<th><input type="checkbox" /></th>
+					<th>车牌号码</th>
+					<th>描设备ID</th>
+					<th>SIM号码</th>
+					<th>标智能盒状态</th>
+					<th>防拆盒状态</th>
+					<th>最后回传时间</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<!--/head-->
+
+			<!-- body -->
+			<tbody>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-orange">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-red">已过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-green">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-orange">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td>正常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-orange">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+			</tbody>
+			<!-- body -->
+		</table>
+
+		<br>
+		<!-- Table -->
+		<fieldset class="hui-elem-field field-title">
+			<legend><a name="default">基础属性</a></legend>
+		</fieldset>
+
+		<p>静态表格支持以下基础属性，可定义不同风格/尺寸的表格样式：</p>
+
+		<table class="hui-table">
+			<thead>
+				<tr>
+					<th>属性名</th>
+					<th>属性值</th>
+					<th>备注</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>even</td>
+					<td>无</td>
+					<td>用于开启 <em>隔行</em> 背景，可与其它属性一起使用</td>
+				</tr>
+				<tr>
+					<td>skin="属性值"</td>
+					<td>
+						line （行边框风格）
+						<br />row （列边框风格） <br />nob （无边框风格）
+					</td>
+					<td>若使用默认风格不设置该属性即可</td>
+				</tr>
+				<tr>
+					<td>size="属性值"</td>
+					<td>
+						sm （小尺寸）
+						<br />lg （大尺寸）
+					</td>
+					<td>若使用默认尺寸不设置该属性即可</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br /><br />
+		<p>
+			将你所需要的属性写在标签上即可，如（一个带有隔行背景，且行边框风格的大尺寸表格）
+		</p>
+		<table class="hui-table" even skin="row" size="lg">
+			<!--head-->
+			<thead>
+				<tr>
+					<th><input type="checkbox" /></th>
+					<th>车牌号码</th>
+					<th>描设备ID</th>
+					<th>SIM号码</th>
+					<th>标智能盒状态</th>
+					<th>防拆盒状态</th>
+					<th>最后回传时间</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<!--/head-->
+			<!-- body -->
+			<tbody>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-orange">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-red">已过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-green">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td class="cl-red">异常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-orange">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>蒙K89966</td>
+					<td>45154512512</td>
+					<td>1419254654754</td>
+					<td>正常</td>
+					<td>正常</td>
+					<td>2018.9.28 16:22:20</td>
+					<td class="cl-orange">将要过期</td>
+					<td class="hui-operation">
+						<a href="#"><i class="icon-editor"></i></a>
+						<a href="#"><i class="icon-delete"></i></a>
+					</td>
+				</tr>
+			</tbody>
+			<!-- body -->
+		</table>
+	</section>
+</body>
+
+</html>

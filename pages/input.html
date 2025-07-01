@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../hui/css/base.css" />
+
+    <!-- jquery2.2 -->
+    <script src="../hui/js/jquery-2.2.3.min.js"></script>
+    <!-- SuperSlide -->
+    <script src="../hui/js/jquery.SuperSlide.2.1.3.js"></script>
+    <!-- common -->
+    <script src="../hui/js/common.js"></script>
+
+    <title>input</title>
+    <style>
+        h1 {
+            margin: 20px 0;
+
+        }
+
+        h1 i {
+            font-size: 24px;
+            margin-right: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hui-main">
+
+        <h1>普通input</h1>
+        <input type="text" class="hui-input" placeholder="请输入信息" />
+
+        <h1>查询/搜索</h1>
+        <div class="hui-form-group" style="width: 300px">
+            <input type="text" class="hui-input" placeholder="请输入信息" />
+            <div class="hui-append">
+                <button class="hui-btn btn-primary">
+                    <i class="hi-search"></i>查 询
+                </button>
+            </div>
+        </div>
+
+        <h1>组合input</h1>
+        <div class="hui-form">
+            <div class="hui-form-item">
+                <div class="item-inline inline-column">
+                    <div class="item-label">用户名</div>
+                    <div class="item-block">
+                        <input type="text" class="hui-input" placeholder="请输入信息" />
+                    </div>
+                </div>
+            </div>
+            <h1>单行</h1>
+            <div class="hui-form-item">
+                <label for="">邮箱</label>
+                <div class="item-block">
+                    <input type="text" class="hui-input" placeholder="输入邮箱地址" />
+                </div>
+            </div>
+            <h1>单行多列</h1>
+            <div class="hui-form-item">
+                <div class="item-inline">
+                    <label class="item-label">密码</label>
+                    <div class="item-block">
+                        <input type="text" class="hui-input" placeholder="请输入信息" />
+                    </div>
+                </div>
+                <div class="item-inline">
+                    <label>验证码</label>
+                    <div class="item-block">
+                        <input type="text" class="hui-input" placeholder="请输入信息" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

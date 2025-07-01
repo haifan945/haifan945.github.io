@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>常用demo</title>
+	<link rel="stylesheet" type="text/css" href="../hui/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="../hui/css/demo.css" />
+
+	<!--[if lt IE 9支持]>
+		<script src="js/html5shiv.min.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+	<!--公共部分开始--js-->
+	<!-- jquery2.2 -->
+	<script src="../static/js/jquery/jquery-2.2.3.min.js"></script>
+	<!-- SuperSlide -->
+	<script src="../static/js/pace/pace.min.js"></script>
+
+	<style>
+		.hui-card {
+			margin-bottom: 36px;
+		}
+
+		.card-body {
+			background-color: #292d3e;
+			padding: 24px;
+			font-size: 16px;
+		}
+
+		.code {
+			position: relative;
+		}
+
+		.code span {
+			display: block;
+			padding-top: 12px;
+
+		}
+
+		h1,
+		h2,
+		h3 {
+			margin-top: 10px;
+		}
+	</style>
+
+
+</head>
+<!--  -->
+
+<body class="hold-transition">
+
+	<div class="hui-layout-admin">
+		<!-- Main content -->
+		<section class="hui-fluid">
+
+			<div class="hui-card">
+				<div class="card-header">scss/flex布局及参数</div>
+				<div class="card-body">
+					<div class="code">
+						<span class="blue">
+							<h2>scss引入flex布局混入</h2>
+						</span>
+
+						<span class="red">@include flexBox();</span>
+
+						<span class="yellow">配置属性时，必须从第一个开始</span>
+
+						<span class="purple">1.默认属性( display:flex,flex-direction:row )</span>
+
+						<span class="purple">2.可配置属性 flexBox($direction:row, $justify:null, $align: null,
+							$flex-wrap:
+							nul)</span>
+
+						<span class="green">
+							<h3>第一个参数：direction：默认row（横排），可选 column(竖排)</h3>
+						</span>
+
+						<span class="purple">@include flexBox(column)</span>
+
+						<span class="green">
+							<h3>第二个参数：$justify：默认null（空），可选 (对齐方式)</h3>
+						</span>
+
+						<span class="red">
+							flex-start 默认值。从行首起始位置开始排列。
+						</span>
+						<span class="red">
+							flex-end 从行尾位置开始排列。
+						</span>
+
+						<span class="red">
+							center 居中排列
+						</span>
+
+						<span class="red">(两端对齐)
+							space-between 均匀排列每个元素，首个元素放置于起点，末尾元素放置于终点。
+						</span>
+
+						<span class="red">
+							space-evenly 均匀排列每个元素，每个元素之间的间隔相等。
+						</span>
+
+						<span class="red">
+							space-around 均匀排列每个元素，每个元素周围分配相同的空间。
+						</span>
+
+						<span class="red">
+							sinitial 设置该属性为它的默认值。
+						</span>
+
+						<span class="red">
+							inherit 从父元素继承该属性
+						</span>
+
+						<span class="green">
+							<h3>第三个参数：$align：默认null（空），可选 (对齐方式)</h3>
+						</span>
+						<span class="red">
+							stretch
+							默认值。元素被拉伸以适应容器。
+							如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。
+						</span>
+						<span class="red">
+							center
+							元素位于容器的中心。
+
+							弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+						</span>
+						<span class="red">
+							flex-start
+							元素位于容器的开头。
+
+							弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+						</span>
+						<span class="red">
+							flex-end
+							元素位于容器的结尾。
+
+							弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+						</span>
+						<span class="red">
+							baseline
+							元素位于容器的基线上。
+
+							如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。
+						</span>
+						<span class="red">
+							initial 设置该属性为它的默认值。
+						</span>
+						<span class="red">
+							inherit 从父元素继承该属性。
+						</span>
+
+						<span class="green">
+							<h3>第四个参数： $flex-wrap：默认null（空），可选 (对齐方式)</h3>
+						</span>
+						<span class="red">nowrap 默认值。规定灵活的项目不拆行或不拆列。</span>
+						<span class="red">wrap 规定灵活的项目在必要的时候拆行或拆列。</span>
+						<span class="red">wrap-reverse 规定灵活的项目在必要的时候拆行或拆列，但是以相反的顺序。</span>
+						<span class="red">initial 设置该属性为它的默认值。</span>
+						<span class="red">inherit 从父元素继承该属性</span>
+
+						<!-- demo -->
+						<div class="flex-demo ">
+							<div>两端对齐的flex布局</div>
+							<div>2</div>
+						</div>
+						<!-- /demo -->
+					</div>
+
+				</div>
+			</div>
+
+			<div class="hui-card">
+				<div class="card-header">scss/引入position布局混入</div>
+				<div class="card-body ">
+					<div class="code">
+						<span class="blue">
+							<h2>scss引入position混入</h2>
+						</span>
+						<span class="red"> @include position();</span>
+						<span class="yellow">配置属性时，必须从第一个开始</span>
+						<span class="purple">1..默认属性(position:position: absolute;z-index: 1;)</span>
+						<span class="purple">2.可配置属性position($left: null, $top: null, $right: null, $bottom: null,
+							$center: null)</span>
+						<span class="green">
+							<h3>第一个参数：left（左）</h3>
+						</span>
+						<span class="green">
+							<h3>第二个参数：top（上）</h3>
+						</span>
+						<span class="green">
+							<h3>第三个参数：right（右）</h3>
+						</span>
+						<span class="green">
+							<h3>第四个参数：bottom（下）</h3>
+						</span>
+						<span class="green">
+							<h3>第五个参数：center（浮动居中）</h3>
+						</span>
+						<span class="red">当第五个参数添加未center时，绝对定位未浮动居中</span>
+						<span class="yellow">position属性值</span>
+						<span class="red">absolute
+							生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
+							元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定</span>
+						<span class="red">fixed
+							生成固定定位的元素，相对于浏览器窗口进行定位。
+
+							元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定</span>
+						<span class="red">relative
+							生成相对定位的元素，相对于其正常位置进行定位。
+							因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。</span>
+						<span class="red">
+							relative
+							生成相对定位的元素，相对于其正常位置进行定位。
+							因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。
+							static 默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。</span>
+						<span class="red">sticky
+							粘性定位，该定位基于用户滚动的位置。
+							它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。
+							注意: Internet Explorer, Edge 15 及更早 IE 版本不支持 sticky 定位。 Safari 需要使用 -webkit- prefix
+						</span>
+						<span class="red">inherit 规定应该从父元素继承 position 属性的值。</span>
+						<span class="red">initial 设置该属性为默认值，</span>
+
+						<div class="position-demo">
+							浮动定位demo
+						</div>
+						<div class="position-demo-sticky">粘性定位 sticky</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="hui-card">
+				<div class="card-header">
+					scss/引入transition 过渡混入
+				</div>
+				<div class="card-body">
+					<div class="code">
+						<span class="blue">
+							<h2>transition 过渡混入</h2>
+						</span>
+						<span class="red">
+							@include transition();
+						</span>
+						<span class="purple">
+							默认属性：transition:all 0.3s ease-in-out
+						</span>
+						<span class="purple">
+							可配置属性：@include transition(all .5s);
+						</span>
+					</div>
+					<div class="transition-demo">过渡demo</div>
+				</div>
+			</div>
+
+
+			<div class="hui-card">
+				<div class="card-header">
+					scss/引入txtover文字超出隐藏
+				</div>
+				<div class="card-body">
+					<div class="code">
+						<span class="blue">
+							<h2>txtover文字超出隐藏</h2>
+						</span>
+						<span class="red">
+							@include txtover();
+						</span>
+						<span class="purple">
+							默认属性：width:100%;white-space: nowrap;display:block;text-overflow: ellipsis;overflow:
+							hidden;
+						</span>
+						<span class="purple">
+							可配置属性：@include txtover(50%); 选择定义宽度，超出宽度隐藏
+						</span>
+						<span class="green">
+							<h3>单行文本换行</h3>
+						</span>
+						<div class="textOverflow-demo">这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字</div>
+						<span class="green">
+							<h3>多行文本换行</h3>
+						</span>
+						<span class="purple">
+							多行文本超出换行：添加属性：
+							txtoverMore(100%, 3)
+						</span>
+						<div class="textOverflow-demo1">
+							这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字这里有一些文字
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="hui-card">
+				<div class="card-header">scss/引入triangle画三角形</div>
+				<div class="card-body">
+					<div class="code">
+						<span class="blue">
+							<h2>triangle画三角形</h2>
+						</span>
+						<span class="red">
+							@include triangle();
+						</span>
+						<span class="red">
+							默认属性: border: 10px solid transparent;
+							width: 0;
+							height: 0;
+							border-bottom-color: #666</span>
+						<span class="yellow">可配置三角形大小，三角形方向，三角形颜色</span>
+						<span class="red">可配置属性：@include triangle(30px,top,$indigo);</span>
+						<span class="blue">上三角</span>
+						<i class="triangle-demo"></i>
+
+						<span class="red">可配置属性：@include triangle(30px,bottom,$pink);</span>
+						<span class="blue">下三角</span>
+						<i class="triangle-demo1"></i>
+
+						<span class="red">可配置属性：@include triangle(30px,left,$yellow);</span>
+						<span class="blue">左三角</span>
+						<i class="triangle-demo2"></i>
+
+						<span class="red">可配置属性：@include triangle(30px,right,$teal);</span>
+						<span class="blue">右三角</span>
+						<i class="triangle-demo3"></i>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="hui-card">
+				<div class="card-header">
+					scss/引入img-fluid 混入响应式图片
+				</div>
+				<div class="card-body">
+					<div class="code">
+						<span class="blue">
+							<h2>img-fluid 混入响应式图片（规定不超出父元素）</h2>
+						</span>
+						<span class="red">
+							@include img-fluid();
+						</span>
+						<div class="img-demo"><img src="../static/images/banner/pic1.jpg" alt=""></div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="hui-card">
+				<div class="card-header">scss/引入border-radius 混入圆角</div>
+
+				<div class="card-body">
+					<div class="code">
+
+						<h1 class="red">
+							@include border-radius();
+						</h1>
+
+						<div class="border-radius-demo"></div>
+						<h2>默认属性:border-radius:4px</h2>
+
+						<div class="border-radius-demo1"></div>
+						<h2> @include border-radius(20px)</h2>
+
+						<div class="border-radius-demo3"></div>
+						<h2> @include border-top-radius(20px);</h2>
+
+						<div class="border-radius-demo4"></div>
+						<h2> @include border-end-radius(20px);</h2>
+
+						<div class="border-radius-demo5"></div>
+						<h2> @include border-bottom-radius(20px);</h2>
+
+						<div class="border-radius-demo6"></div>
+						<h2> @include border-start-radius(20px)</h2>
+
+						<div class="border-radius-demo7"></div>
+						<h2> @include border-top-start-radius(20px);</h2>
+
+						<div class="border-radius-demo8"></div>
+						<h2> @include border-bottom-end-radius(20px);</h2>
+
+						<div class="border-radius-demo9"></div>
+						<h2> @include border-bottom-start-radius(20px);</h2>
+
+						<div class="border-radius-demo10"></div>
+						<h2> @include border-end-radius(30px);</h2>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="hui-card">
+				<div class="card-header">
+					<span class="blue">
+						<h2>scss混入animation动画库</h2>
+					</span>
+				</div>
+				<div class="card-body">
+
+					<div class="code">
+						<span class="blue">
+							<h2>animation 混入动画</h2>
+						</span>
+						<span class="red">
+							@include animation();
+						</span>
+
+						<span class="purple">
+							默认属性：空
+						</span>
+						<span class="yellow">配置属性时，必须从第一个开始</span>
+						<span class="purple">
+							可选配置：混入动画 动画名称 播放时间 等待时间 循环播放(infinite)或者次数
+						</span>
+						<span class="blue">
+							@include animation(hui-upbit, 0.5s, 1.5s, 1);
+						</span>
+						<span class="red">
+							动画名称参考：菜单栏-组件-动画
+							<a href="animate.html" target="_blank" style="color: #C3E88D;">HUI-动画库</a>
+						</span>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+	</div>
+</body>
+
+</html>

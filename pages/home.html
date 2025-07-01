@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>huiAdmin</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="../hui/css/base.css" />
+	<script src="../static/js/pace/pace.min.js"></script>
+
+
+
+	<style>
+		.hui-table td,
+		.hui-table th {
+			font-size: 16px;
+		}
+
+		.dropup,
+		.dropdown {
+			position: relative;
+		}
+
+		.dropdown-toggle:focus {
+			outline: 0;
+		}
+
+		.dropdown-menu {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 1000;
+			display: none;
+			float: left;
+			min-width: 160px;
+			padding: 5px 0;
+			margin: 2px 0 0;
+			list-style: none;
+			font-size: 14px;
+			text-align: left;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 4px;
+			-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+			background-clip: padding-box;
+		}
+
+		.dropdown-menu.pull-right {
+			right: 0;
+			left: auto;
+		}
+
+		.dropdown-menu .divider {
+			height: 1px;
+			margin: 9px 0;
+			overflow: hidden;
+			background-color: #e5e5e5;
+		}
+
+		.dropdown-menu>li>a {
+			display: block;
+			padding: 3px 20px;
+			clear: both;
+			font-weight: normal;
+			line-height: 1.42857143;
+			color: #333333;
+			white-space: nowrap;
+		}
+
+		.dropdown-menu>li>a:hover,
+		.dropdown-menu>li>a:focus {
+			text-decoration: none;
+			color: #262626;
+			background-color: #f5f5f5;
+		}
+
+		.dropdown-menu>.active>a,
+		.dropdown-menu>.active>a:hover,
+		.dropdown-menu>.active>a:focus {
+			color: #fff;
+			text-decoration: none;
+			outline: 0;
+			background-color: #337ab7;
+		}
+
+		.dropdown-menu>.disabled>a,
+		.dropdown-menu>.disabled>a:hover,
+		.dropdown-menu>.disabled>a:focus {
+			color: #777777;
+		}
+
+		.dropdown-menu>.disabled>a:hover,
+		.dropdown-menu>.disabled>a:focus {
+			text-decoration: none;
+			background-color: transparent;
+			background-image: none;
+			filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+			cursor: not-allowed;
+		}
+
+		.open>.dropdown-menu {
+			display: block;
+		}
+
+		.open>a {
+			outline: 0;
+		}
+
+		.dropdown-menu-right {
+			left: auto;
+			right: 0;
+		}
+
+		.dropdown-menu-left {
+			left: 0;
+			right: auto;
+		}
+
+		.dropdown-header {
+			display: block;
+			padding: 3px 20px;
+			font-size: 12px;
+			line-height: 1.42857143;
+			color: #777777;
+			white-space: nowrap;
+		}
+
+		.dropdown-backdrop {
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			z-index: 990;
+		}
+
+		.pull-right>.dropdown-menu {
+			right: 0;
+			left: auto;
+		}
+
+		.dropup .caret,
+		.navbar-fixed-bottom .dropdown .caret {
+			border-top: 0;
+			border-bottom: 4px dashed;
+			border-bottom: 4px solid \9;
+			content: "";
+		}
+
+		.dropup .dropdown-menu,
+		.navbar-fixed-bottom .dropdown .dropdown-menu {
+			top: auto;
+			bottom: 100%;
+			margin-bottom: 2px;
+		}
+	</style>
+</head>
+
+<body class="hui-layout-admin">
+	<!-- Main content -->
+	<section class="hui-fluid">
+
+		<div class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+				aria-expanded="true">
+				Dropdown
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" aria-labelledby="drop3">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+
+
+
+
+		<fieldset class="hui-elem-field field-title">
+			<legend><i class="icon-user-fill"></i> CSS内置公共基础类</legend>
+		</fieldset>
+
+		<!-- 表格 -->
+		<table class="hui-table">
+			<thead>
+				<tr>
+					<th>类名（class）</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<h1 class="ft24">布局/容器</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>hui-main</td>
+					<td>用于设置一个宽度为 1280px 的水平居中块</td>
+				</tr>
+				<tr>
+					<td>hui-inline</td>
+					<td>用于将标签设为内联块状元素</td>
+				</tr>
+				<tr>
+					<td>hui-box</td>
+					<td>用于排除一些UI框架（如Bootstrap）强制将全部元素设为box-sizing: border-box所引发的尺寸偏差</td>
+				</tr>
+				<tr>
+					<td>hui-clear</td>
+					<td>用于消除浮动（一般不怎么常用，因为hui几乎没用到浮动）</td>
+				</tr>
+				<tr>
+					<td></i>hui-btn-container</td>
+					<td>用于定义按钮的父容器</td>
+				</tr>
+				<tr>
+					<td>hui-btn-fluid</td>
+					<td>用于定义流体按钮。即宽度最大化适应</td>
+				</tr>
+				<!-- 辅助 -->
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<h1 class="ft24">辅助</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>hui-icon</td>
+					<td>用于字体图标 <i class="hui-icon hui-iconhome"></i>
+						<pre class="hui-inline">  &lt;i class="hui-icon hui-iconhome"&gt;&lt;/i&gt;</pre>
+					</td>
+				</tr>
+				<tr>
+					<td>hui-elip</td>
+					<td>用于单行文本溢出省略</td>
+				</tr>
+				<tr>
+					<td>hui-unselect</td>
+					<td>用于屏蔽选中</td>
+				</tr>
+				<tr>
+					<td>hui-disabled</td>
+					<td>用于设置元素不可点击状态 <button class="hui-disabled"> 按钮 </button> </td>
+				</tr>
+				<tr>
+					<td>hui-circle </td>
+					<td>用于设置元素为圆形</td>
+				</tr>
+				<tr>
+					<td>hui-show</td>
+					<td>用于显示块状元素</td>
+				</tr>
+				<tr>
+					<td>hui-hide</td>
+					<td>用于隐藏块状元素</td>
+				</tr>
+
+				<tr class="hui-shadow">
+					<td>hui-shadow</td>
+					<td>用于显示元素阴影 </td>
+				</tr>
+
+				<!-- 颜色 -->
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<h1 class="ft24">颜色</h1>
+					</td>
+				</tr>
+
+				<tr class="cl-primary">
+					<td>cl-primary</td>
+					<td>用于设置默认色</td>
+				</tr>
+
+				<tr class="cl-white bg-primary">
+					<td>cl-white </td>
+					<td>用于设置白色</td>
+				</tr>
+
+				<tr class="cl-black">
+					<td>cl-black</td>
+					<td>用于设置元素经典黑色(#000)</td>
+				</tr>
+
+				<tr class="cl-dk-grey">
+					<td>cl-dk-grey</td>
+					<td>用于设置元素经典灰黑色(#333)</td>
+				</tr>
+
+				<tr class="cl-grey">
+					<td>cl-grey</td>
+					<td>用于设置元素经典灰色(#666)</td>
+				</tr>
+
+				<tr class="cl-lt-gray">
+					<td>cl-lt-gray</td>
+					<td>用于设置元素经典浅灰色(#999)</td>
+				</tr>
+
+				<tr class="cl-blue">
+					<td>cl-blue</td>
+					<td>用于设置元素蓝色</td>
+				</tr>
+
+				<tr class="cl-indigo">
+					<td>cl-indigo</td>
+					<td>用于设置元素紫色</td>
+				</tr>
+
+				<tr class="cl-pink">
+					<td>cl-pink</td>
+					<td>用于设置元素粉色</td>
+				</tr>
+
+				<tr class="cl-red">
+					<td>cl-red</td>
+					<td>用于设置元素赤色</td>
+				</tr>
+
+				<tr class="cl-orange">
+					<td>cl-orange</td>
+					<td>用于设置元素橙色</td>
+				</tr>
+
+				<tr class="cl-yellow">
+					<td>cl-yellow</td>
+					<td>用于设置元素黄色</td>
+				</tr>
+
+
+				<tr class="cl-teal">
+					<td>cl-teal</td>
+					<td>用于设置元素藏青色</td>
+				</tr>
+
+				<tr class="cl-green">
+					<td>cl-green</td>
+					<td>用于设置元素绿色</td>
+				</tr>
+
+				<tr class="cl-cyan">
+					<td>cl-cyan</td>
+					<td>用于设置元素蓝绿色</td>
+				</tr>
+
+				<tr class="cl-steelblue">
+					<td>cl-steelblue</td>
+					<td>用于设置元素蓝绿色</td>
+				</tr>
+
+
+				<!-- 背景 -->
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<h1 class="ft24">背景</h1>
+					</td>
+				</tr>
+
+				<tr class="bg-primary">
+					<td>bg-primary</td>
+					<td>用于设置默认色</td>
+				</tr>
+
+				<tr class="bg-white">
+					<td>bg-white </td>
+					<td>用于设置白色</td>
+				</tr>
+
+				<tr class="bg-black">
+					<td>bg-black</td>
+					<td>用于设置元素经典黑色(#000)</td>
+				</tr>
+
+				<tr class="bg-dk-grey">
+					<td>bg-dk-grey</td>
+					<td>用于设置元素经典灰黑色(#333)</td>
+				</tr>
+
+				<tr class="bg-grey">
+					<td>bg-grey</td>
+					<td>用于设置元素经典灰色(#666)</td>
+				</tr>
+
+				<tr class="bg-lt-gray">
+					<td>bg-lt-gray</td>
+					<td>用于设置元素经典浅灰色(#999)</td>
+				</tr>
+
+				<tr class="bg-blue">
+					<td>bg-blue</td>
+					<td>用于设置元素蓝色</td>
+				</tr>
+
+				<tr class="bg-indigo">
+					<td>bg-indigo</td>
+					<td>用于设置元素紫色</td>
+				</tr>
+
+				<tr class="bg-pink">
+					<td>bg-pink</td>
+					<td>用于设置元素粉色</td>
+				</tr>
+
+				<tr class="bg-red">
+					<td>bg-red</td>
+					<td>用于设置元素赤色</td>
+				</tr>
+
+				<tr class="bg-orange">
+					<td>bg-orang</td>
+					<td>用于设置元素橙色</td>
+				</tr>
+
+				<tr class="bg-yellow">
+					<td>bg-yellow</td>
+					<td>用于设置元素黄色</td>
+				</tr>
+
+
+				<tr class="bg-teal">
+					<td>bg-teal</td>
+					<td>用于设置元素藏青色</td>
+				</tr>
+
+				<tr class="bg-green">
+					<td>bg-green</td>
+					<td>用于设置元素绿色</td>
+				</tr>
+
+				<tr class="bg-cyan">
+					<td>bg-cyan</td>
+					<td>用于设置元素蓝绿色</td>
+				</tr>
+
+				<tr class="bg-steelblue">
+					<td>bg-steelblue</td>
+					<td>用于设置元素蓝绿色</td>
+				</tr>
+
+				<!-- 文本 -->
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<h1 class="ft24">文本</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>hui-text</td>
+					<td>用于定义一段文本区域（如文章），该区域内的特殊标签（如a、li、em等）将会进行相应格式化</td>
+				</tr>
+				<tr>
+					<td>hui-word-aux</td>
+					<td>灰色标注性文字，左右会有间隔</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<fieldset class="hui-elem-field field-title">
+			<legend>CSS命名规范</legend>
+		</fieldset>
+
+		<table class="hui-table">
+			<tr>
+				<td> 命名格式一般分为两种：一：hui-模块名-状态或类型，二：hui-状态或类型。因为有些类并非是某个模块所特有，他们通常会是一些公共类。如：一（定义按钮的原始风格）：class="hui-btn
+					hui-btn-primary"、三（定义内联块状元素）：class="hui-inline" </td>
+			</tr>
+
+			<tr>
+				<td>如果你是开发Hui拓展（模块），你最好也要遵循于类似的规则，并且请勿占用Hui已经命名好的类，假设你是在帮Hui开发一个新项目(新闻)，你的css书写规则应该如下：</td>
+			</tr>
+			<tr>
+				<td>
+					<p>.hui-news{border：1px solid #ccc}</p>
+					<p>.hui-news p{}</p>
+					<p>.hui-news ul{}</p>
+					<p>.hui-news ul li{}</p>
+				</td>
+			</tr>
+		</table>
+
+	</section>
+	<!-- ./wrapper -->
+
+	<script src="../static/js/jquery/jquery-2.2.3.min.js"></script>
+	<script src="../static//js/dropdown.js"></script>
+
+</body>
+
+</html>

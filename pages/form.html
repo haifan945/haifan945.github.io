@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>表单</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/base.css" /> -->
+	<link rel="stylesheet" type="text/css" href="../hui/css/base.css" />
+	<!-- select2 -->
+	<link rel="stylesheet" type="text/css" href="../hui/css/select2.css" />
+	<!-- jquery -->
+	<script src="../hui/js/jquery-2.2.3.min.js"></script>
+	<!-- Select2 -->
+	<script src="../static/plugins/select2/select2.full.min.js"></script>
+	<!-- common -->
+	<script src="../hui/js/common.js"></script>
+	<style>
+		.hui-card {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.hui-card>.hui-form {
+			height: 40px;
+			overflow: hidden;
+			transition: all .3s;
+		}
+
+		.hui-form.show {
+			height: 110px;
+		}
+
+		.btn-down {
+			background: none;
+			border: none;
+			transition: all .3s;
+		}
+
+		.btn-down:hover,
+		.btn-down:focus,
+		.btn-down:active {
+			background: none;
+		}
+
+		.hui-form.show .btn-down {
+			transform: rotate(180deg);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="hui-layout-admin">
+		<!-- Main content -->
+		<section class="hui-fluid">
+
+			<div class="hui-card">
+				<!-- top -->
+				<div class="hui-form">
+					<div class="hui-form-item">
+						<div class="item-inline">
+							<label class="item-label"><i class="icon-star1"></i></label>
+							<div class="item-block">
+								<input type="text" class="hui-input" placeholder="请输入信息" />
+							</div>
+						</div>
+						<div class="item-inline">
+							<label><i class="icon-star1"></i></label>
+							<div class="item-block">
+								<input type="text" class="hui-input" placeholder="请输入信息" />
+							</div>
+						</div>
+						<div class="item-inline">
+							<label><i class="icon-star1"></i></label>
+							<div class="item-block">
+								<input type="text" class="hui-input" placeholder="请输入信息" />
+							</div>
+						</div>
+						<div class="item-inline">
+							<label>验证码</label>
+							<div class="item-block">
+								<input type="text" class="hui-input" placeholder="请输入信息" />
+							</div>
+						</div>
+
+						<div class="item-inline">
+							<div class="item-block">
+								<button type="button" class="hui-btn btn-primary"><i class="icon-search"></i></button>
+								<button type="button" class="hui-btn btn-down"><i
+										class="icon-down-sm-fill"></i></button>
+							</div>
+						</div>
+					</div>
+
+					<!-- bottom -->
+					<div class="hui-form-item" style="display: block; ">
+
+						<div class="item-inline">
+							<label>车辆类型</label>
+							<div class="item-block">
+								<select id="hui_select2">
+									<option value="">-----单选-----</option>
+									<option>是</option>
+									<option>否</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="item-inline">
+							<label>过期时间</label>
+							<div class="item-block">
+								<input type="text" name="date1" id="date1" class="hui-input" placeholder="请选择">
+								<input type="hidden" id="submitDate" name="submitDate" class="hui-input" />
+							</div>
+						</div>
+						<div class="item-inline">
+							<label>是否行驶</label>
+							<div class="item-block">
+								<select id="hui_select2_demo">
+									<option value="">-----单选-----</option>
+									<option>是</option>
+									<option>否</option>
+								</select>
+							</div>
+						</div>
+						<div class="item-inline">
+							<label>是否定位</label>
+							<div class="item-block">
+								<select id="hui_select2_demo1">
+									<option value="">-----单选-----</option>
+									<option>是</option>
+									<option>否</option>
+								</select>
+							</div>
+						</div>
+						<div class="item-inline">
+							<label>是否在线</label>
+							<div class="item-block">
+								<select id="hui_select2_demo2">
+									<option value="">-----单选-----</option>
+									<option>是</option>
+									<option>否</option>
+								</select>
+							</div>
+						</div>
+						<div class="item-inline inline-big">
+							<label>智能盒状态</label>
+							<div class="item-block">
+								<select id="hui_select2_demo3">
+									<option value="">-----单选-----</option>
+									<option>正常</option>
+									<option>异常</option>
+								</select>
+							</div>
+						</div>
+						<div class="item-inline  inline-big">
+							<label>防拆盒状态</label>
+							<div class="item-block">
+								<select id="hui_select2_demo4">
+									<option value="">-----单选-----</option>
+									<option>正常</option>
+									<option>异常</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<br>
+			<div class="hui-card">
+				<div class="card-body">
+					<div class="hui-form">
+
+						<div class="hui-form-item">
+							<label>输入框</label>
+							<div class="item-block">
+								<input type="text" name="title" placeholder="请输入标题" autocomplete="off"
+									class="hui-input ">
+							</div>
+						</div>
+
+						<div class="hui-form-item">
+							<label>密码框</label>
+							<div class="item-block">
+								<input type="password" name="password" placeholder="请输入密码" autocomplete="off"
+									class="hui-input">
+								<label class="hui-form-mid hui-word-aux">辅助文字</label>
+							</div>
+						</div>
+
+						<div class="hui-form-item">
+							<label>下拉框</label>
+							<div class="item-block">
+								<select id="hui_select2">
+									<option value="">-----请选择-----</option>
+									<option value="1">北京</option>
+									<option value="2">上海</option>
+									<option value="3">广州</option>
+									<option value="4">深圳</option>
+									<option value="5">杭州</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="hui-form-item">
+						
+								<label>单选框</label>
+								<div class="item-block">
+									<div class="hui-form-radio">
+										<input type="radio" name="sex" checked id="man" />
+										<label for="man">男</label> <input type="radio" name="sex" id="lady" />
+										<label for="lady">女</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="hui-form-item">
+								<label>多选框</label>
+								<div class="item-block" >
+									<div class="hui-form-checkbox">
+										<input type="checkbox" id="read" /> <label for="read">读书</label>
+										<input type="checkbox" id="swiming" /> <label for="swiming">写字</label>
+										<input type="checkbox" id="basketball" /><label for="basketball"
+											style="width: 100px;">看电视</label>
+									</div>
+								</div>
+							
+						</div>
+
+
+						<div class="hui-form-item">
+							<label>文本域</label>
+							<div class="item-block">
+								<textarea name="" placeholder="请输入" class="hui-textarea"></textarea>
+							</div>
+						</div>
+
+						<div class="hui-form-item ">
+
+							<div class="item-inline">
+								<label>日期选择</label>
+								<div class="item-block">
+									<input type="text" name="date1" id="date1" class="hui-input" placeholder="请选择">
+									<input type="hidden" id="submitDate" name="submitDate" class="hui-input" />
+								</div>
+							</div>
+
+							<div class="item-inline bootstrap-timepicker">
+								<label>时间</label>
+								<div class="item-block"> <input type="text" class="hui-input timepicker"
+										value="00:00:00" placeholder="请选择"></div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+
+
+		<!-- ./wrapper -->
+		<!--公共部分开始--js-->
+
+
+		<!-- InputMask -->
+		<!-- <script src="../static/plugins/input-mask/jquery.inputmask.js"></script>
+		<script src="../static/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+		<script src="../static/plugins/input-mask/jquery.inputmask.extensions.js"></script> -->
+
+		<!-- iCheck -->
+		<!-- <script src="../static/plugins/iCheck/icheck.min.js"></script> -->
+		
+		<!-- Sparkline -->
+		<!-- <script src="../static/plugins/sparkline/jquery.sparkline.min.js"></script> -->
+		<!-- Bootstrap WYSIHTML5 -->
+		<!-- <script src="../static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script> -->
+		<!-- Slimscroll -->
+
+		<!-- FastClick -->
+
+		<!-- AdminLTE App -->
+
+		<!--公共部分结束--js-->
+		<!-- daterangepicker -->
+		<!-- <script src="../static/plugins/daterangepicker/moment.min.js"></script> -->
+		<!-- <script src="../static/plugins/daterangepicker/daterangepicker.js"></script> -->
+		<!-- timepicker -->
+		<!-- <script src="../static/plugins/timepicker/bootstrap-timepicker.min.js"></script> -->
+		<!--  -->
+		<!-- <script src="../static/plugins/bootstrap-fileinput/js/fileinput.js"></script> -->
+		<!-- <script src="../static/plugins/bootstrap-fileinput/js/locales/zh.js"></script> -->
+
+
+		<!-- 日期选择器 -->
+		<!-- <script type="text/javascript">
+			$(function () {
+				//单个时间插件
+				$("input[name='date1']").daterangepicker({
+					singleDatePicker: true, //设置为单个的datepicker，而不是有区间的datepicker 默认false
+					showDropdowns: true, //当设置值为true的时候，允许年份和月份通过下拉框的形式选择 默认false
+					autoUpdateInput: false, //1.当设置为false的时候,不给与默认值(当前时间)2.选择时间时,失去鼠标焦点,不会给与默认值 默认true
+					timePicker24Hour: true, //设置小时为24小时制 默认false
+					timePicker: false, //可选中时分 默认false
+					locale: {
+						format: "YYYY-MM-DD",
+						separator: " - ",
+						daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+						monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+					}
+
+				}).on('cancel.daterangepicker', function (ev, picker) {
+					$("#date1").val("请选择日期");
+					$("#submitDate").val("");
+				}).on('apply.daterangepicker', function (ev, picker) {
+					$("#submitDate").val(picker.startDate.format('YYYY-MM-DD'));
+					$("#date1").val(picker.startDate.format('YYYY-MM-DD'));
+				});
+
+				//区间时间插件
+				$("input[name='date2']").daterangepicker({
+					// autoApply: true,
+					autoUpdateInput: false,
+					// alwaysShowCalendars: true,
+					ranges: {
+						'今天': [moment(), moment()],
+						'昨天': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+						'近7天': [moment().subtract(7, 'days'), moment()],
+						'这个月': [moment().startOf('month'), moment().endOf('month')],
+						'上个月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+							.endOf('month')
+						]
+					},
+					locale: {
+						format: "YYYY/MM/DD HH:MM:SS",
+						separator: " - ",
+						applyLabel: "确认",
+						cancelLabel: "清空",
+						fromLabel: "开始时间",
+						toLabel: "结束时间",
+						customRangeLabel: "自定义",
+						daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+						monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+					}
+				}).on('cancel.daterangepicker', function (ev, picker) {
+					$("#date2").val("请选择日期范围");
+					$("#startTime").val("");
+					$("#endTime").val("");
+				}).on('apply.daterangepicker', function (ev, picker) {
+					$("#startTime").val(picker.startDate.format('YYYY-MM-DD'));
+					$("#endTime").val(picker.endDate.format('YYYY-MM-DD'));
+					$("#date2").val(picker.startDate.format('YYYY-MM-DD') + " 至 " + picker.endDate.format(
+						'YYYY-MM-DD'));
+				});
+
+			});
+		</script> -->
+
+
+		<!-- <script type="text/javascript">
+			$('.timepicker').timepicker({
+				showInputs: false
+			})
+		</script> -->
+
+
+		<script>
+			// 初始化select2
+			var selectorx = $(
+					'#hui_select2,#hui_select2_demo,#hui_select2_demo1,#hui_select2_demo2,#hui_select2_demo3,#hui_select2_demo4')
+				.select2();
+			// 设置select2
+			$('#hui_select2,#hui_select2_demo,#hui_select2_demo1,#hui_select2_demo2,#hui_select2_demo3,#hui_select2_demo4')
+				.select2({
+					placeholder: '请选择', //下拉框提示	
+					minimumResultsForSearch: -1 //不显示搜索框
+				});
+		</script>
+
+
+	</div>
+</body>
+
+</html>

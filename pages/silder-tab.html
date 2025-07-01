@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../hui/css/base.css" />
+ 
+    <!-- jquery2.2 -->
+    <script src="../hui/js/jquery-2.2.3.min.js"></script>
+    <!-- SuperSlide -->
+    <script src="../hui/js/jquery.SuperSlide.2.1.3.js"></script>
+    <!-- common -->
+    <script src="../hui/js/common.js"></script>
+    <title>silder-tab</title>
+    <style>
+        .hui-main {
+            width: 1280px;
+        }
+
+        h1 {
+            margin: 20px 0;
+
+        }
+
+        h1 i {
+            font-size: 24px;
+            margin-right: 20px;
+
+        }
+
+        .demo-tab-news {
+            width: 50%;
+
+        }
+
+        .demo-tab-news2 {
+            width: 100%;
+
+        }
+
+        .hui-slider-tab-col {
+            height: 282px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hui-main">
+        <h1><i class="hi-box-seam-fill"></i>tab切换（上下布局）</h1>
+
+        <div class="demo-tab-news">
+            <div class="hui-slider-tab">
+                <div class="hd">
+                    <span class="title">信息公开</span>
+                    <span class="title">政策文件</span>
+                    <span class="title">政策解读</span>
+                    <div class="more">
+                        <a href="#">更多+</a>
+                        <a href="#">更多+</a>
+                        <a href="#">更多+</a>
+                    </div>
+                </div>
+                <div class="bd">
+                    <div class="hui-list">
+                        <ul class="list-group dot">
+                            <li class="item"> <a href="#">新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                <time>2022-09-31</time>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hui-list">
+                        <ul class="list-group dot">
+                            <li class="item"> <a href="#">新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                <time>2022-09-31</time>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hui-list">
+                        <ul class="list-group dot">
+                            <li class="item"> <a href="#">新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                <time>2022-09-31</time>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h1><i class="hi-box-seam-fill"></i>tab切换（左右布局）</h1>
+
+        <div class="demo-tab-news2">
+
+            <div class="hui-slider-tab-col">
+                <div class="hd">
+                    <span class="title">选项第一</span>
+                    <span class="title">选项第二</span>
+                    <span class="title">选项第三</span>
+                    <span class="title">选项第四</span>
+                    <span class="title">选项第五</span>
+
+                </div>
+                <div class="bd">
+                    <div class="hui-list">
+                        <ul class="list-group dot">
+                            <li class="item"> <a href="#">1112新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                <time>2022-09-31</time>
+                            </li>
+                            <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                <time>2022-09-31</time>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        222
+                    </div>
+
+                    <div class="box">
+                        3333
+                    </div>
+                    <div class="box">
+                        4444
+                    </div>
+
+                    <div class="box">
+                        5555
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <h1><i class="hi-box-seam-fill"></i>tab切换（嵌套切换布局）</h1>
+
+        <div class="demo-tab-news">
+            <div class="hui-slider-tab hui-slider-nest">
+                <div class="hd">
+                    <span class="title">信息公开</span>
+                    <span class="title">政策文件</span>
+                    <span class="title">政策解读</span>
+                    <div class="more">
+                        <a href="#">更多+</a>
+                        <a href="#">更多+</a>
+                        <a href="#">更多+</a>
+                    </div>
+                </div>
+                <div class="bd">
+
+                    <!-- 内层嵌套的tab -->
+                    <!-- inbox1 -->
+                    <div class="hui-slider-inBox">
+                        <div class="inHd">
+                            <span class="title">栏目一</span>
+                            <span class="title">栏目二</span>
+                            <span class="title">栏目三</span>
+                        </div>
+                        <div class="inBd">
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- inBox2 -->
+                    <div class="hui-slider-inBox">
+                        <div class="inHd">
+                            <span class="title">栏目一</span>
+                            <span class="title">栏目二</span>
+                            <span class="title">栏目三</span>
+                        </div>
+                        <div class="inBd">
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- inBox3 -->
+                    <div class="hui-slider-inBox">
+                        <div class="inHd">
+                            <span class="title">栏目一</span>
+                            <span class="title">栏目二</span>
+                            <span class="title">栏目三</span>
+                        </div>
+                        <div class="inBd">
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hui-list">
+                                <ul class="list-group dot">
+                                    <li class="item"> <a href="#">333新城区2022年公开招聘合同制工作人员简章新城区2022年公开招聘合同制工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"> <a href="#">呼和浩特市新城区2022年公开招考聘用125名社区工作人员简章</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">截至8月10日24时内蒙古自治区新冠肺炎疫情最新情况</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区委第二巡察组关于巡察司法局党组的反馈意见的社会公开</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                    <li class="item"><a href="#">新城区卫生健康委员会关于新城区下新营村魏雄杰卫生所注销的公告</a>
+                                        <time>2022-09-31</time>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /inbox -->
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <!-- 折叠菜单 -->
+        <h1><i class="hi-box-seam-fill"></i>折叠菜单</h1>
+        <div class="demo-tab-news">
+            <div class="hui-sider-menu">
+                <div class="title">项目一</div>
+                <div class="item">
+                    <ul>
+                        <li>淘宝首页右侧公告</li>
+                        <li>京东首页产品切换</li>
+                        <li>苏宁易购首页品牌切换</li>
+                        <li>1号店双重切换</li>
+                        <li>腾讯健康频道切换</li>
+                    </ul>
+                </div>
+
+                <div class="title">项目二</div>
+                <div class="item">
+                    <ul>
+                        <li>淘宝首页焦点图</li>
+                        <li>腾讯娱乐频道焦点图</li>
+                        <li>腾讯电影频道焦点图</li>
+                        <li>网易游戏频道焦点图</li>
+                        <li>易迅首页焦点图</li>
+                    </ul>
+                </div>
+                <div class="title">项目三</div>
+                <div class="item">
+                    <ul>
+                        <li>淘宝首页今日活动</li>
+                        <li>豆瓣读书频道</li>
+                        <li>天猫首页品牌切换</li>
+                        <li>格瓦拉首页活动进行中</li>
+                        <li>腾讯博客图片滚动</li>
+                    </ul>
+                </div>
+
+            </div><!-- sideMen End -->
+        </div>
+
+    </div>
+    <br><br><br><br><br><br>
+
+    </div>
+</body>
+
+</html>
