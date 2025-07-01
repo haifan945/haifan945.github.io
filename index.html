@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HUI2023-pro V6.0官方文档</title>
+	<link rel="stylesheet" type="text/css" href="static/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="hui/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/admin.css" />
+	<!-- jquery2.2 -->
+	<script src="static/js/jquery/jquery-2.2.3.min.js"></script>
+	<!-- bootstrap3 -->
+	<script src="static/js/bootstrap/bootstrap3.min.js"></script>
+	<!-- AdminLTE -->
+	<script src="static/js/app.js"></script>
+	<!-- app_iframe -->
+	<script src="static/js/app_iframe.js"></script>
+	<!-- menu -->
+	<script src="hui/js/menu.js"></script>
+</head>
+
+<body class="hui-layout-body sidebar-mini">
+	<div class="hui-layout-admin">
+		<!-- header -->
+		<header class="hui-header">
+			<!-- logo -->
+			<a href="index.html" class="hui-logo">
+				<span class="logo-lg"><img src="static/images/admin-logo.png"></span>
+				<span class="logo-mini">Hui6.0</span>
+			</a>
+			<!-- /logo -->
+
+			<!-- header-menu -->
+			<div class="header-menu">
+				<!-- collapse -->
+				<div class="hui-collapse">
+					<a href="#" class="sidebar-toggle" title="折叠" data-toggle="offcanvas" role="button">
+						<i class="hui-icon icon-toggle-left"></i>
+						<i class="hui-icon icon-toggle-right"></i>
+					</a>
+				</div>
+				<!-- /collapse -->
+				<!-- nav -->
+				<ul class="nav nav-end">
+					<li class="nav-item user-menu">
+						<a class="nav-link"><i class="hui-icon icon-user-center"></i><cite>欢迎您：admin</cite></a>
+						<!-- 二级菜单 -->
+						<ul class="dropdown-menu">
+							<li class="user-header">
+								<img src="static/images/userPhoto.png" class="img-circle" alt="User Image">
+								<h3 class="name">管理员</h3>
+							</li>
+							<li class="user-footer">
+								<div class="pull-left"> <a href="#" class="hui-btn btn-primary btn-sm">个人资料</a>
+								</div>
+								<div class="pull-right"> <a href="#" class="hui-btn btn-primary btn-sm">修改密码</a>
+								</div>
+							</li>
+						</ul>
+						<!-- /二级菜单 -->
+					</li>
+
+					<!-- date -->
+					<li class="nav-item time">
+						<a href="#" class="nav-link">
+							<i class="hui-icon icon-calendar"></i>
+							<time class="hui-time">
+								<span class="date"></span><span class="time"></span><span class="day"></span>
+							</time>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="javascript:refreshTab();" class="nav-link" title="刷新"><i
+								class="hui-icon icon-refresh"></i></a>
+					</li>
+					<li class="nav-item">
+						<a href="#" onclick="App.handleFullScreen()" class="nav-link" title="全屏"><i
+								class="hui-icon icon-fullscreen-magnify"></i></a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link" title="退出"><i class="hui-icon icon-switch"></i></a>
+					</li>
+				</ul>
+				<!-- /nav -->
+			</div>
+			<!-- /header-menu -->
+		</header>
+		<!-- /header -->
+
+		<div class="hui-side">
+			<div class="hui-side-scroll">
+				<!-- menu -->
+				<section class="sidebar">
+					<ul class="sidebar-menu color-menu"></ul>
+				</section>
+				<!--/ menu -->
+			</div>
+		</div>
+
+		<div class="hui-body">
+			<!-- 内容主体区域 -->
+			<!-- 右侧主体顶部tab -->
+			<section class="content-wrapper" id="content-wrapper" style="min-height: 927px;">
+				<!-- content-nav -->
+				<div class="hui-content-tabs">
+					<!-- leftBtn -->
+					<button class="roll-nav roll-left tabLeft" onclick="scrollTabLeft()"> <i
+							class="hui-icon icon-double-arrow-left"></i></button>
+					<!-- centerNav -->
+					<nav class="page-tabs menuTabs tab-ui-menu" id="tab-menu">
+						<div class="page-tabs-content"> </div>
+					</nav>
+
+					<!-- rightBtnGroup -->
+					<div class="btn-group roll-nav roll-right" id="hui-dropdown" data-toggle="hui-dropdown">
+						<button class="dropdown-btn"><i class="hui-icon icon-arrow-down"></i></button>
+						<ul class="hui-dropdown-menu">
+							<li><a class="tabReload" href="javascript:refreshTab();">刷新页面</a></li>
+							<li><a class="tabCloseCurrent" href="javascript:closeCurrentTab();">关闭当前</a></li>
+							<li><a class="tabCloseOther" href="javascript:closeOtherTabs();">关闭其他</a></li>
+							<li><a class="tabCloseAll" href="javascript:closeOtherTabs(true);">全部关闭</a></li>
+						</ul>
+					</div>
+					<!-- rightBtn -->
+					<button class="roll-nav roll-right tabRight" onclick="scrollTabRight()"> <i
+							class="hui-icon icon-double-arrow-right"></i></button>
+				</div>
+				<!-- /content-nav -->
+
+				<!-- 右侧主体iframe -->
+				<div class="hui-content-iframe">
+					<div id="tab-content" class="tab-content"></div>
+				</div>
+				<!--/ 右侧主体iframe -->
+			</section>
+		</div>
+
+		<!-- 底部固定区域 -->
+		<footer class="hui-footer">版权所有：内蒙古海凡科技 Copyright © 2005-2020 .All rights reserved 京ICP备11005637号</footer>
+	</div>
+</body>
+
+</html>
