@@ -1,0 +1,561 @@
+.hui-layout-admin {
+  overflow: hidden;
+}
+
+.hui-layout-admin .hui-header .hui-logo {
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.3s;
+  -weblit-transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-header .hui-logo .logo-lg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hui-layout-admin .hui-header .hui-logo .logo-lg img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.hui-layout-admin .hui-header .hui-logo .logo-mini {
+  display: none;
+  color: #1989fa;
+}
+
+.hui-layout-admin .hui-header .header-menu {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hui-layout-admin .hui-header .header-menu .hui-collapse {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  transition: all 0.3s;
+  -weblit-transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-header .header-menu .hui-collapse .sidebar-toggle {
+  display: block;
+  color: #ffffff;
+}
+
+.hui-layout-admin .hui-header .header-menu .hui-collapse .sidebar-toggle:hover {
+  color: #1989fa;
+}
+
+.hui-layout-admin .hui-header .header-menu .hui-collapse .sidebar-toggle .icon-toggle-left {
+  display: block;
+}
+
+.hui-layout-admin .hui-header .header-menu .hui-collapse .sidebar-toggle .icon-toggle-right {
+  display: none;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item {
+  line-height: 60px;
+  height: 60px;
+  min-width: 42px;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item .nav-link {
+  font-size: 14px;
+  padding: 0 12px !important;
+  cursor: pointer;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item .nav-link:hover {
+  font-weight: normal;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item .nav-link .hui-icon {
+  font-size: 16px;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item .nav-link .hui-time,
+.hui-layout-admin .hui-header .header-menu .nav .nav-item .nav-link cite {
+  margin-left: 8px;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item .nav-link .hui-time span {
+  margin-right: 6px;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item:hover::after {
+  width: 0 !important;
+}
+
+.hui-layout-admin .hui-header .header-menu .nav .nav-item.time {
+  width: 246px;
+  display: block;
+  text-align: left;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu {
+  position: relative;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu .dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 4px 4px;
+  width: 200px;
+  margin-top: 0;
+  animation: hui-upbit 0.3s both;
+  display: none;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu .dropdown-menu .user-header {
+  padding-top: 12px;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu .dropdown-menu .user-header .name {
+  color: #181818;
+  padding-bottom: 0;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu .dropdown-menu .user-header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu .dropdown-menu .user-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.hui-layout-admin .hui-header .header-menu .user-menu .dropdown-menu .user-footer .btn-sm {
+  padding: 0 18px;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll {
+  position: relative;
+  width: 210px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar {
+  overflow: hidden;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu {
+  overflow: hidden;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li > a {
+  position: relative;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 45px;
+  box-sizing: content-box;
+  transition: all 0.3s;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li > a:hover {
+  background-color: #187aff;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li > a::before {
+  content: '';
+  width: 3px;
+  height: 0;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li > a:hover::before {
+  height: 100%;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li.active > a {
+  background-color: #187aff;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li.active > a:before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li .label,
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li .badge {
+  margin-right: 5px;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li .badge {
+  margin-top: 3px;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu > li.header {
+  padding: 10px 25px 10px 15px;
+  font-size: 12px;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .treeview-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .treeview-menu > li > a {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 8px 14px 8px 32px !important;
+  box-sizing: content-box;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .treeview-menu > li > a:hover {
+  color: white;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .treeview-menu > li > a .hui-icon {
+  width: 16px;
+  font-size: 12px;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .hui-icon {
+  color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  margin-top: -20px;
+  transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .hui-icon.icon-arrow-down {
+  position: absolute;
+  top: 28px;
+  left: 160px !important;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  font-size: 12px;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu .active > a > .icon-arrow-down {
+  transform: rotate(-90deg);
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu li.active > .treeview-menu {
+  display: block;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview .nav-link {
+  color: #fff;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(1) .hui-icon {
+  color: #ff4040;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(2) .hui-icon {
+  color: #ff9f40;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(3) .hui-icon {
+  color: #f0f03c;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(4) .hui-icon {
+  color: #86d736;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(5) .hui-icon {
+  color: #39e239;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(6) .hui-icon {
+  color: #4040ff;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(7) .hui-icon {
+  color: #df40ff;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(8) .hui-icon {
+  color: #fb3f87;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(9) .hui-icon {
+  color: #ffffff;
+}
+
+.hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu.color-menu .treeview:nth-child(10) .hui-icon {
+  color: #36d5fc;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs {
+  height: 42px;
+  line-height: 42px;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .roll-nav {
+  position: absolute;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  text-align: center;
+  color: #475059;
+  z-index: 2;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  outline: 0;
+  transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .roll-nav .hui-icon {
+  transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .roll-nav.roll-left {
+  left: 0;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .roll-nav.roll-left:hover {
+  color: #1989fa;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .roll-nav.roll-right {
+  right: 0;
+  border-left: 1px solid #f6f6f6;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .roll-nav.roll-right:hover {
+  color: #1989fa;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group {
+  right: 40px !important;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group .dropdown-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group .dropdown-btn:hover {
+  background-color: #eee;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group .dropdown-btn:hover .icon-arrow-down {
+  color: #1989fa;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group .hui-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: -36px;
+  z-index: 1000;
+  display: none;
+  min-width: 128px;
+  padding: 5px 0;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  animation: hui-upbit 0.3s both;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group .hui-dropdown-menu li a {
+  display: block;
+  padding: 8px 32px;
+  color: #777;
+  white-space: nowrap;
+  line-height: 1.42;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs .btn-group .hui-dropdown-menu li a:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs {
+  margin-left: 40px;
+  width: 100000px;
+  height: 42px;
+  overflow: hidden;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs .page-tabs-content {
+  float: left;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a {
+  display: block;
+  float: left;
+  padding: 0 24px;
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  border-right: 1px solid #f6f6f6;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a:first-child {
+  padding-right: 24px;
+  border-left: 1px solid #f6f6f6;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a .hui-icon {
+  top: -8px;
+  right: 2px;
+  position: absolute;
+  color: #151b3d;
+  font-size: 14px !important;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a .hui-icon:hover {
+  color: #c00 !important;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a.active {
+  background: #f6f6f6;
+  color: #333;
+  position: relative;
+  background: #f6f6f6;
+  color: #333;
+  position: relative;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a.active::before {
+  content: '';
+  background-color: #292b34;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 0;
+  background-color: #292b34;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a:hover {
+  background-color: #f6f6f6;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-tabs nav.page-tabs a:hover::after {
+  width: 100%;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-iframe #tab-content .tab-pane {
+  display: none;
+}
+
+.hui-layout-admin .hui-body #content-wrapper .hui-content-iframe #tab-content .tab-pane.active {
+  display: block;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .hui-logo {
+  width: 50px;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .hui-logo .logo-lg {
+  display: none;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .hui-logo .logo-mini {
+  display: block;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .sidebar-toggle .icon-toggle-left {
+  display: none;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .sidebar-toggle .icon-toggle-right {
+  display: block;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .hui-header-left {
+  margin-left: 50px;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-header .hui-header-right {
+  right: 0px;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-side {
+  width: 50px;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu li a span {
+  display: none !important;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-side .hui-side-scroll .sidebar .sidebar-menu li a .hui-icon {
+  color: #1989fa;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-body {
+  left: 50px;
+}
+
+.hui-sidebar-collapse .hui-layout-admin .hui-layout-bottom {
+  left: 50px;
+}
