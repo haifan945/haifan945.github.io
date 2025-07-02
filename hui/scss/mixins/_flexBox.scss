@@ -1,0 +1,27 @@
+// $direction：排列方式默认;row(横排)，column(竖排)
+// $justify：横轴排列方式
+// $align:纵轴排列方式
+// $flex-wrap:换行方式，默认不换行，wrap:(换行)
+@mixin flexBox($direction: row, $justify: null, $align: null, $flex-wrap: nul) {
+    display: flex;
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+
+    @if ($direction !=null) {
+        flex-direction: $direction;
+        -ms-flex-direction: $direction;
+    }
+
+    @if ($justify !=nul) {
+        justify-content: $justify;
+    }
+
+    @if ($align !=nul) {
+        align-items: $align;
+    }
+
+    @if ($flex-wrap !=nul) {
+        flex-wrap: $flex-wrap;
+        -ms-flex-wrap: $flex-wrap;
+    }
+}

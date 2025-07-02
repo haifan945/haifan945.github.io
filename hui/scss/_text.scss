@@ -1,0 +1,52 @@
+// 文本
+.#{$namespace} {
+  &-text {
+    line-height: 22px;
+    font-size: $ft-sm;
+    color: $grey;
+
+    h1,
+    h2,
+    h3 {
+      color: $dark-grey;
+    }
+
+    h1 {
+      font-size: $ft-max;
+    }
+
+    h2 {
+      font-size: $ft-bg;
+    }
+
+    h3 {
+      font-size: $ft-lg;
+    }
+
+    // a样式不作用在btn上
+    a {
+      &:not(.#{$namespace}-btn) {
+        color: $primary;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    // 列表
+    ul {
+      padding: 5px 0 5px 15px;
+
+      li {
+        margin-top: 5px;
+        list-style-type: disc;
+      }
+    }
+
+    // 标注性文字
+    em,
+    .#{$namespace}-word-aux {
+      color: $light-gray !important;
+      padding: 0 5px !important;
+    }
+  }
+}

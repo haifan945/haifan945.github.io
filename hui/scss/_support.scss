@@ -1,0 +1,143 @@
+.#{$namespace} {
+  // 引用区块
+  &-elem-quote {
+    margin-bottom: 10px;
+    padding: 15px;
+    line-height: 22px;
+    border-left: 5px solid $primary;
+    border-radius: 0 2px 2px 0;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    color: $grey;
+
+    &.quote-nm {
+      border-style: solid;
+      border-width: 1px 1px 1px 5px;
+      background: 0 0;
+      border-color: #e5e5e5;
+    }
+  }
+  // 字段集区块
+  &-elem-field {
+    margin-bottom: 10px;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+
+    legend {
+      margin-left: 20px;
+      padding: 0 10px;
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 0;
+      width: auto;
+      border-bottom: none;
+    }
+    &.field-title {
+      margin: 10px 0 20px;
+      border-width: 1px 0 0;
+
+      .field-box {
+        padding: 10px 0;
+      }
+    }
+    .field-box {
+      padding: 10px 15px;
+    }
+  }
+
+  // 进度条
+  &-progress {
+    background-color: $gray-300;
+    border-radius: 20px;
+    .progress-bar {
+      position: relative;
+      width: 0;
+      height: 6px;
+      text-align: right;
+      .progress-inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        max-width: 100%;
+        height: 6px;
+        border-radius: 20px;
+        background-color: $primary;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        animation: progress-bar-w 1s both;
+      }
+    }
+
+    .progress-text {
+      position: relative;
+      top: -20px;
+      line-height: 18px;
+      font-size: $ft-sm;
+      color: $grey;
+    }
+
+    &.progress-big {
+      &,
+      .progress-bar,
+      .progress-inner {
+        height: 18px;
+        line-height: 18px;
+      }
+      .progress-text {
+        position: static;
+        padding: 0 10px;
+        color: $white;
+      }
+    }
+  }
+  // 时间线
+  &-timeline {
+    padding-left: 5px;
+    &-item {
+      position: relative;
+      padding-bottom: 20px;
+      &::before {
+        content: "";
+        @include position(5px, 0);
+        z-index: 0;
+        width: 1px;
+        height: 100%;
+        background-color: $gray-300;
+      }
+    }
+    &-content {
+      padding-left: 20px;
+    }
+    &-axis {
+      position: absolute;
+      top: 0;
+      left: -2px;
+      z-index: 10;
+      width: 14px;
+      height: 14px;
+      line-height: 20px;
+      background-color: #fff;
+      color: $primary;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid $primary;
+    }
+  }
+
+  // 圆角
+  &-circle {
+    border-radius: 100%;
+  }
+}
+
+@keyframes progress-bar-w {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

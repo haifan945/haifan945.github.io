@@ -1,0 +1,62 @@
+.#{$namespace} {
+  &-card {
+    width: 100%;
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    background-color: $white;
+    overflow: hidden;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    @include transition();
+
+    // &:hover {
+    //   transform: translateY(-5px);
+    // }
+
+    .card-header {
+      width: 100%;
+
+      .card-img {
+        width: 100%;
+        height: 150px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        a {
+          @include transition();
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+      }
+    }
+    .card-body {
+      padding: 20px;
+      min-height: 130px;
+      background-color: $white;
+
+      .card-title {
+        font-size: $ft-lg;
+        color: $link-color;
+        @include transition();
+      }
+      .card-text {
+        font-size: $ft-sm;
+        padding-top: 15px;
+        line-height: 1.6;
+        color: $gray-500;
+      }
+      a {
+        @include transition();
+        &:hover {
+          .card-title {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

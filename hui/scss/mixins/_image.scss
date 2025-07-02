@@ -1,0 +1,6 @@
+// Image Mixins
+// 响应式图像保持图像从缩放不超过他们的父母的宽度
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}

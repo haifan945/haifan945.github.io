@@ -1,0 +1,486 @@
+// 混入翻页按钮
+@mixin paging-btn {
+  .prev,
+  .next {
+    display: block;
+    width: 22px;
+    height: 42px;
+    margin-top: -15px;
+    @include position(3%, 50%);
+
+    &::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-left: 2px solid $white;
+      border-bottom: 2px solid $white;
+      margin-top: 6px;
+      filter: alpha(opacity=50);
+      opacity: 0.5;
+      @include transition();
+    }
+
+    &:hover::before {
+      filter: alpha(opacity=100);
+      opacity: 1;
+    }
+  }
+
+  .prev {
+    &::before {
+      transform: rotate(45deg);
+      margin-left: 6px;
+    }
+  }
+
+  .next {
+    left: auto;
+    right: 3%;
+
+    &::before {
+      transform: rotate(-135deg);
+      margin-left: -14px;
+    }
+  }
+
+  .prevStop,
+  .nextStop {
+    display: none;
+  }
+}
+// 盒子尺寸
+@mixin box-size {
+  width: 100%;
+  height: 100%;
+}
+// 绝对定位
+@mixin box-pos {
+  overflow: hidden;
+  position: relative;
+}
+// 内容盒子尺寸
+@mixin content-box {
+  .bd,
+  ul,
+  li,
+  a,
+  .img,
+  img {
+    @include box-size();
+  }
+}
+// a标签
+@mixin a-block {
+  a {
+    display: block;
+  }
+}
+@mixin slider-text {
+  color: $white;
+  font-size: 18px;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 40px;
+  background: rgba($black, 0.4);
+  @include position(0, null, null, 0);
+  @include txtover();
+}
+.#{$namespace} {
+  //1. 大图轮播
+  &-slider-banner {
+    // 宽高100%,
+    @include box-size();
+    // position: relative;
+    @include box-pos();
+    // 内容宽高自适应
+    @include content-box();
+    // 前后翻页按钮
+    @include paging-btn();
+    // hd
+    .hd {
+      @include position(null, null, null, 40px, center);
+      text-align: center;
+      font-size: 0;
+
+      // 当前小点
+      i {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        opacity: 0.4;
+        background: $black;
+        border-radius: $border-radius-circle;
+        cursor: pointer;
+
+        &.on {
+          opacity: 1;
+          background-color: $white;
+        }
+      }
+
+      &.block {
+        i {
+          width: 30px;
+          height: 3px;
+          border-radius: 0;
+        }
+      }
+    }
+    // bd
+    .bd {
+      @include a-block();
+    }
+  }
+
+  //2.adv轮播
+  &-slider-ad {
+    // 宽高100%,
+    @include box-size();
+    // position: relative;
+    @include box-pos();
+    // 整体内容自适应父
+    @include content-box();
+    // hd
+    .hd {
+      @include position(null, null, 5px, 5px);
+
+      ul {
+        font-size: 0;
+        li {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+          font-size: 12px;
+          text-align: center;
+          background: $white;
+          color: $primary;
+          margin-right: 2px;
+          cursor: pointer;
+          filter: alpha(opacity=60);
+          opacity: 0.6;
+
+          &.on {
+            color: $white;
+            background: $orange;
+            filter: alpha(opacity=100);
+            opacity: 1;
+          }
+        }
+      }
+    }
+    // bd
+    .bd {
+      @include a-block();
+    }
+    // 左右翻页箭头
+    .switch {
+      width: 10px;
+      @include position(null, calc(50% - 12px));
+
+      .prev {
+        @include triangle(6px, top, $yellow);
+
+        &:hover {
+          @include triangle(6px, top, $primary);
+        }
+      }
+
+      .next {
+        @include triangle(6px, bottom, $yellow);
+        margin-top: 3px;
+
+        &:hover {
+          @include triangle(6px, bottom, $primary);
+        }
+      }
+    }
+  }
+
+  // 3.新闻轮播
+  &-slider-news {
+    @include box-size();
+    @include box-pos();
+    @include content-box();
+    @include paging-btn();
+    // hd
+    .hd {
+      @include position(null, null, null, 60px, center);
+      text-align: center;
+      font-size: 0;
+
+      // 当前小点
+      i {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        opacity: 0.4;
+        background: $black;
+        border-radius: $border-radius-circle;
+        cursor: pointer;
+
+        &.on {
+          opacity: 1;
+          background-color: $white;
+        }
+      }
+
+      &.block {
+        i {
+          width: 30px;
+          height: 3px;
+          border-radius: 0;
+        }
+      }
+    }
+    // bd
+    .bd {
+      p {
+        @include slider-text();
+      }
+    }
+  }
+  //4. 带缩率图的轮播（左右）
+  &-slider-thumb-row {
+    // 宽高100%,
+    @include box-size();
+    // position: relative;
+    @include box-pos();
+    // 内容宽高自适应
+    @include content-box();
+    display: flex;
+    flex-direction: row;
+    //hd
+    .hd {
+      width: 100px;
+      height: 100%;
+      margin-left: 5px;
+      .img-box {
+        display: block;
+        width: 100%;
+        height: 60px;
+        margin-bottom: 5px;
+        position: relative;
+        @include a-block();
+
+        img {
+          @include box-size();
+        }
+
+        &.on {
+          cursor: pointer;
+          &::before {
+            content: "";
+            @include box-size();
+            @include position(0, 0);
+            border: 3px solid $white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          }
+          &::after {
+            content: "";
+            @include triangle(10px, left, $white);
+            @include position(-20px, calc(50% - 5px));
+          }
+        }
+      }
+    }
+    //bd
+    .bd {
+      width: calc(100% - 100px);
+      p {
+        @include slider-text();
+      }
+    }
+  }
+
+  // 5.带缩率图的轮播（上下）
+  &-slider-thumb-col {
+    // 宽高100%,
+    @include box-size();
+    // position: relative;
+    @include box-pos();
+    // 内容宽高自适应
+    @include content-box();
+
+    // hd
+    .hd {
+      height: 80px;
+      margin-top: 10px;
+      @include flexBox(row, space-between);
+
+      .img-box {
+        width: calc(20% - 2px);
+
+        img {
+          opacity: 0.75;
+          @include transition();
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          @include box-size();
+          position: relative;
+          display: block;
+          &::before {
+            content: "";
+            display: block;
+            @include box-size();
+            @include position(0px, 0px);
+            border: {
+              width: 2px;
+              style: solid;
+              color: rgba($orange, 0);
+            }
+          }
+          &::after {
+            content: "";
+            @include triangle(0px, top, $orange);
+            @include position(null, 10px, null, null, center);
+          }
+        }
+
+        &.on {
+          img {
+            opacity: 1;
+          }
+          a {
+            &::before {
+              content: "";
+              border: {
+                color: rgba($orange, 1);
+              }
+            }
+            &::after {
+              content: "";
+              top: -10px;
+              @include triangle(5px, top, $orange);
+            }
+          }
+        }
+      }
+    }
+    // bd
+    .bd {
+      height: 230px;
+      ul {
+        height: 230px;
+        li {
+          position: relative;
+          p {
+            @include slider-text();
+          }
+        }
+      }
+    }
+  }
+
+  //  6.多图轮播
+  &-slider-multi {
+    position: relative;
+    @include box-size();
+    @include content-box;
+    @include paging-btn();
+
+    .bd {
+      ul {
+        height: 260px;
+        li {
+          width: calc(20% - 16px);
+          margin-right: 20px;
+        }
+      }
+    }
+
+    // 翻页
+    .prev,
+    .next {
+      &::before {
+        content: "";
+        border-color: $primary;
+        border-width: 4px;
+        opacity: 0.9;
+      }
+    }
+    .prev {
+      left: -50px;
+      transition: all 0.3s;
+      &:hover {
+        left: -55px;
+      }
+    }
+    .next {
+      right: -50px;
+      transition: all 0.3s;
+      &:hover {
+        right: -55px;
+      }
+    }
+  }
+  // 手风琴-折叠菜单
+  &-sider-menu {
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba($black, 0.2);
+
+    .title {
+      height: 46px;
+      line-height: 46px;
+      padding-left: 20px;
+      border-top: 1px solid rgba($black, 0.05);
+      background: rgba($black, 0.04);
+      font-size: $ft-bs;
+      position: relative;
+      @include clear();
+      cursor: pointer;
+      @include transition();
+
+      &:first-child {
+        border-top: none;
+      }
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 10px;
+        background-color: #999;
+        @include position(null, 22px, 16px);
+      }
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &.on {
+        color: $primary;
+
+        &::before {
+          background-color: $primary;
+        }
+        &::after {
+          display: none;
+        }
+      }
+      &:hover {
+        background: rgba($black, 0.02);
+        color: $primary;
+        &::before,
+        &::after {
+          background-color: $primary;
+        }
+      }
+    }
+    // 内容
+    ul {
+      padding: 8px 25px;
+      color: #999;
+      li {
+        padding: 10px 0;
+      }
+    }
+  }
+}

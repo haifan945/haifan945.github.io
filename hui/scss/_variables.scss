@@ -1,0 +1,418 @@
+// 全局命名空间
+$namespace: hui;
+//1.颜色---------------
+$white: #fff !default;
+$gray-100: #fafafa !default;
+$gray-200: #f0f0f0 !default;
+$gray-300: #e5e5e5 !default;
+$gray-400: #d9d9d9 !default;
+$gray-500: #bdbdbd !default;
+$gray-600: #7d7d7d !default;
+$gray-700: #575757 !default;
+$gray-800: #404040 !default;
+$gray-900: #292929 !default;
+
+// 灰色
+$dark-grey: #333 !default;
+$grey: #666 !default;
+$light-gray: #999 !default;
+$black: #000 !default;
+
+// 彩色
+$blue: #1989fa !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #f56c6c !default;
+$orange: #ed9d35 !default;
+$yellow: #d8c18a !default;
+$green: #19be6b !default;
+$teal: #29ba90 !default;
+$cyan: #31bdec !default;
+$steelblue: #a6c5e1 !default;
+
+// 行为状态
+$primary: $blue !default; //主要
+$secondary: $gray-600 !default; //次要
+$success: $green !default; //成功
+$info: $cyan !default; //信息
+$warning: $yellow !default; //警告
+$danger: $red !default; //危险
+$light: $gray-100 !default; //亮色
+$dark: $gray-800 !default; //暗色
+
+//2.字体-----------------------
+$font-family-base: "Microsoft YaHei", 微软雅黑, 宋体, 黑体, "Helvetica Neue",
+  Tahoma, Arial, "Hiragino Sans GB" !default; //默认
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default; // 无趁线
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace !default; // 等宽字体
+
+
+//字体大小
+$ft-bs: 16px !default; //默认字体大小 //16px
+$ft-sm: $ft-bs * 0.875 !default; // 14px
+$ft-lg: $ft-bs * 1.125 !default; // 18px
+$ft-bg: $ft-bs * 1.5 !default; // 24px
+$ft-max: $ft-bs * 2 !default; // 32px
+$ft-max-lg: $ft-bs * 2.25 !default; // 36px
+$ft-max-bg: $ft-bs * 2.5 !default; // 40px
+
+//字体粗细
+$ft-wg-lt: lighter !default;
+$ft-wg-lh: 300 !default;
+$ft-wg-nm: 400 !default;
+$ft-wg-bd: 700 !default;
+$ft-wg-bdr: bolder !default;
+$ft-wg-bs: $ft-wg-nm !default;
+
+//h1--h6字体
+$h1-ft: $ft-bs * 2.125 !default; // 40px
+$h2-ft: $ft-bs * 2 !default; // 32px
+$h3-ft: $ft-bs * 1.75 !default; // 28px
+$h4-ft: $ft-bs * 1.5 !default; // 24px
+$h5-ft: $ft-bs * 1.25 !default; // 20px
+$h6-ft: $ft-bs !default; // 16px
+
+//3.页面------------------------------
+$body-bg: $white !default;
+$body-font: $font-family-sans-serif !default;
+$body-color: $dark-grey !default;
+$footer-bg: #e3e3e3 !default;
+
+// 3.1页面(页面主体宽度)
+$body-container:100% !default;
+$body-main:1180px !default;
+$body-warp:1180px !default;
+
+// 2.链接------------------------------
+$link-color: #0d1c28 !default;
+$link-hover-color: $gray-600 !default;
+$link-decoration: none !default;
+$link-shade-percentage: 20% !default;
+$link-hover-decoration: null !default;
+$emphasized-link-hover-darken-percentage: 15% !default;
+
+//3.导航------------------------------
+$nav-size: 60px !default;
+$nav-ft: $ft-bs + 6px !default;
+$nav-bg: $primary !default;
+$navbar-ht: $nav-size !default;
+$nav-ht: $nav-size !default;
+$nav-item-ht: $nav-size !default;
+$nav-item-lht: $nav-size !default;
+$nav-ht-a: $nav-size !default;
+
+//3.1子导航
+$sub-nav-size: 50px !default;
+$sub-nav-bg: #fffaee !default;
+$sub-nav-item-ht: $sub-nav-size !default;
+$sub-nav-item-lht: $sub-nav-size !default;
+$sub-nav-ht-a: $sub-nav-size !default;
+
+//3.2导航颜色
+$nav-bg: $primary !default;
+$nav-width: 1280px !default;
+$nav-link-padding-y: 18px !default;
+$nav-link-padding-x: 18px !default;
+$nav-link-font-size: 14px !default;
+$nav-link-font-weight: null !default;
+$nav-link-color: $white !default;
+$nav-link-hover-color: $yellow !default;
+$nav-link-transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
+$nav-link-disabled-color: $gray-600 !default;
+
+// 4.圆角------------------------------
+$border-radius-sm: 3px !default;
+$border-radius: 4px !default;
+$border-radius-lg: 5px !default;
+$rounded-pill: 100% !default;
+$border-radius-circle: 50% !default;
+$border-radius-bese: 10px !default;
+
+//5. 阴影------------------------------
+$box-shadow-sm: 0 2 4px rgba($black, 0.075) !default;
+$box-shadow: 0 0 10px rgba($black, 0.1) !default;
+$box-shadow-lg: 0 16px 48px rgba($black, 0.175) !default;
+
+// 6.列表
+$list-item-pt:15px;
+$list-item-pb:15px;
+$list-item-link-color: $link-color !default;
+$list-item-link-color-hover: $primary !default;
+$list-item-link-ft-size: $ft-bs !default;
+$list-item-link-width:84% !default;
+$list-item-time-ft:$ft-bs !default;
+$list-item-time-color: $light-gray !default;
+$list-item-dot-width:4px !default;
+$list-item-dot-height:4px !default;
+$list-item-dot-bg:#6e777e !default;
+$list-item-dot-hover:$primary !default;
+
+// 19.内间距--------
+$padding-sm: 6px !default;
+$padding-base: 12px !default;
+$padding-lg: 16px !default;
+$padding-bg: 24px !default;
+$padding-max: 32px !default;
+
+// 20.外边距---------
+$margin-sm: 6px !default;
+$margin-base: 12px !default;
+$margin-lg: 16px !default;
+$margin-bg: 24px !default;
+$margin-max: 32px !default;
+
+// 按钮-------------------------------------
+// $btn-padding-y: $input-btn-padding-y !default;
+// $btn-padding-x: $input-btn-padding-x !default;
+// $btn-font-family: $input-btn-font-family !default;
+// $btn-font-size: $input-btn-font-size !default;
+// $btn-line-height: $input-btn-line-height !default;
+// $btn-white-space: null !default;
+// $btn-padding-y-sm: $input-btn-padding-y-sm !default;
+// $btn-padding-x-sm: $input-btn-padding-x-sm !default;
+// $btn-font-size-sm: $input-btn-font-size-sm !default;
+// $btn-line-height-sm: $input-btn-line-height-sm !default;
+// $btn-padding-y-lg: $input-btn-padding-y-lg !default;
+// $btn-padding-x-lg: $input-btn-padding-x-lg !default;
+// $btn-font-size-lg: $input-btn-font-size-lg !default;
+// $btn-line-height-lg: $input-btn-line-height-lg !default;
+// $btn-border-width: $input-btn-border-width !default;
+// $btn-font-weight: $font-weight-normal !default;
+// $btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
+// $btn-focus-width: $input-btn-focus-width !default;
+// $btn-focus-box-shadow: $input-btn-focus-box-shadow !default;
+// $btn-disabled-opacity: 0.65 !default;
+// $btn-active-box-shadow: inset 0 3px 5px rgba($black, 0.125) !default;
+// $btn-link-disabled-color: $gray-600 !default;
+// $btn-block-spacing-y: 8px !default;
+
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+// // Customize the light and dark text colors for use in our color contrast function.
+// $color-contrast-dark: $black !default;
+// $color-contrast-light: $white !default;
+
+// // 通过启用或禁用可选功能快速修改全局样式（开启或者关闭某些样式）
+$enable-caret: true !default;
+$enable-rounded: true !default; //圆角
+$enable-shadows: true !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-reduced-motion: true !default;
+$enable-smooth-scroll: true !default;
+$enable-grid-classes: true !default;
+$enable-cssgrid: false !default;
+$enable-button-pointers: true !default;
+$enable-rfs: true !default;
+$enable-validation-icons: true !default;
+$enable-negative-margins: false !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities: true !default;
+
+// // 2.尺寸垫片--------------------------------------
+// $spacer: 16px !default;
+// $spacers: (
+//   0: 0,
+//   1: $spacer * 0.25,
+//   2: $spacer * 0.5,
+//   3: $spacer,
+//   4: $spacer * 1.5,
+//   5: $spacer * 3,
+// ) !default;
+
+// // 5. P标签下边距
+// $paragraph-margin-bottom: 16px !default;
+
+// // 6.行高-------------------------------------
+// $line-height-sm: 1.5 !default;
+// $line-height-lg: 1.5 !default;
+
+// // 7.边框-------------------------------------
+// $border-width: 1px !default;
+// $border-color: $gray-300 !default;
+
+// // 8.hr边框---------------------------------------
+// $hr-border-color: rgba($black, 0.1) !default;
+// $hr-border-width: $border-width !default;
+
+// $component-active-color: $white !default;
+// $component-active-bg: $primary !default;
+
+// // 16.标题头
+// $headings-margin-bottom: $spacer * 0.5 !default;
+// $headings-font-family: null !default;
+// $headings-font-weight: 500 !default;
+// $headings-line-height: 1.2 !default;
+// $headings-color: null !default;
+
+// // 17. 层级--------------------------------------
+// $zindex-dropdown: 1000 !default; // 下拉框
+// $zindex-sticky: 1020 !default; // 粘性
+// $zindex-fixed: 1030 !default; // 固定
+// $zindex-modal-backdrop: 1040 !default; // 模态框背景
+// $zindex-modal: 1050 !default; // 模态框
+// $zindex-popover: 1060 !default; // 弹出窗
+// $zindex-tooltip: 1070 !default; // 提示信息
+
+// // 18. hr.列表
+// $hr-margin-y: $spacer !default;
+// $list-inline-padding: 8px !default;
+// $mark-bg: #fcf8e3 !default;
+
+// // 21。图片尺寸------------------------------
+// $img-size-sm: 16px !default;
+// $img-size-base: $img-size-sm * 3 !default; // 48px
+// $img-size-lg: $img-size-sm * 4 !default; // 64px
+// $img-size-bg: $img-size-sm * 5.25 !default; // 84px
+// $img-siza-max: $img-size-sm * 6 !default; // 96px
+
+// // 22. 水平间距---------------------------------
+// $spacing-row-sm: $spacer * 0.25 !default; // 4px
+// $spacing-row-base: $spacer * 0.5 !default; // 8px
+// $spacing-row-lg: $spacer * 0.75 !default; // 12px
+// $spacing-row-bg: $spacer * 1 !default; // 16px
+// $spacing-row-max: $spacer * 1.5 !default; // 24px
+
+// // 垂直间距----------------------------------------
+// $spacing-col-sm: $spacer * 0.25 !default; //4px
+// $spacing-col-base: $spacer * 0.5 !default; //8px
+// $spacing-col-lg: $spacer * 0.75 !default; //12px
+// $spacing-col-bg: $spacer * 1 !default; //16px
+// $spacing-col-max: $spacer * 1.5 !default; //24px
+
+// // 透明度-------------------------
+// $opacity-disabled: 0.3;
+
+// // hr线-------------------------------------------
+// $hr-margin-y: $spacer !default;
+// $hr-color: inherit !default;
+// $hr-height: $border-width !default;
+// $hr-opacity: 0.25 !default;
+
+// // 文档开始标题变量----------------------------------
+// $headings-margin-bottom: $spacer * 0.5 !default;
+// $headings-font-family: null !default;
+// $headings-font-style: null !default;
+// $headings-font-weight: 500 !default;
+// $headings-line-height: 1.2 !default;
+// $headings-color: null !default;
+// $dt-font-weight: $font-weight-bold !default;
+// $mark-padding: 3px !default;
+// $pre-color: null !default;
+// $small-font-size: 14px !default;
+
+// // code-------------------------------------------
+// $code-color: $pink !default;
+// $code-font-size: $small-font-size !default;
+// $kbd-padding-y: 3px !default;
+// $kbd-padding-x: 6px !default;
+// $kbd-font-size: $code-font-size !default;
+// $kbd-color: $white !default;
+// $kbd-bg: $gray-900 !default;
+
+// // 弹性布局 --------------------------------------
+// $justify: null !default;
+
+// // input-btn
+// $input-btn-padding-y: 12px !default;
+// $input-btn-padding-x: 12px !default;
+// $input-btn-font-family: null !default;
+// $input-btn-font-size: $font-size-base !default;
+// $input-btn-line-height: $line-height-base !default;
+// $input-btn-focus-width: 3px !default;
+// $input-btn-focus-color: rgba($component-active-bg, 0.25) !default;
+// $input-btn-focus-box-shadow: 0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
+// $input-btn-padding-y-sm: 4px !default;
+// $input-btn-padding-x-sm: 8px !default;
+// $input-btn-font-size-sm: $font-size-sm !default;
+// $input-btn-line-height-sm: $line-height-sm !default; 
+// $input-btn-padding-y-lg: 8px !default;
+// $input-btn-padding-x-lg: 16px !default;
+// $input-btn-font-size-lg: $font-size-lg !default;
+// $input-btn-line-height-lg: $line-height-lg !default;
+// $input-btn-border-width: $border-width !default;
+
+// // 图片类
+// $thumbnail-padding: 4px !default;
+// $thumbnail-bg: $body-bg !default;
+// $thumbnail-border-width: $border-width !default;
+// $thumbnail-border-color: $gray-300 !default;
+// $thumbnail-border-radius: $border-radius !default;
+// $thumbnail-box-shadow: $box-shadow-sm !default;
+
+// // 轮廓-（图片类）
+// // scss-docs-start figure-variables
+// $figure-caption-font-size: $small-font-size !default;
+// $figure-caption-color: $gray-600 !default;
+
+// // 面包屑导航
+// // Breadcrumbs
+// $breadcrumb-font-size: null;
+// $breadcrumb-padding-y: 12px;
+// $breadcrumb-padding-x: 12px;
+// $breadcrumb-item-padding-x: 8px;
+// $breadcrumb-margin-top: 16px;
+// $breadcrumb-margin-bottom: 16px;
+// $breadcrumb-bg: null;
+// $breadcrumb-divider-color: $gray-600;
+// $breadcrumb-active-color: $gray-600;
+// $breadcrumb-divider: quote(">");
+// $breadcrumb-divider-flipped: $breadcrumb-divider;
+// $breadcrumb-border-radius: null;
+
+// $grid-columns: 12 !default;
+// $grid-gutter-width: 30px !default;
+// $grid-row-columns: 6 !default;
+
+// // Cards卡片面板
+// $card-spacer-y: 12px !default;
+// $card-spacer-x: 20px !default;
+// $card-border-width: $border-width !default;
+// $card-border-radius: $border-radius !default;
+// $card-border-color: rgba($black, 0.125) !default;
+// $card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
+// $card-cap-bg: $gray-100 !default;
+// $card-cap-color: $grey !default;
+// $card-height: null !default;
+// $card-color: $grey !default;
+// $card-bg: $white !default;
+// $card-img-overlay-padding: 20px !default;
+// $card-group-margin: $grid-gutter-width * 0.5 !default;
+// $card-deck-margin: $card-group-margin !default;
+// $card-columns-count: 3 !default;
+// $card-columns-gap: 20px !default;
+// $card-columns-margin: $card-spacer-y !default;
+
+// superSlider(顶部大图轮播)常用变量
+// $slideBanner-width: 100% !default; //整体宽度
+// $slideBanner-height: 620px !default; //整体高度
+
+// 新闻轮播
+// $slidenews-width: 630px !default;
+// $slidenews-height: 400px !default;
+
+//slideMultiImg(多图轮播)
+$slideMultiImg-width: 100% !default;
+$slideMultiImg-height: 540px !default; //整体高度
+$slideMultiImg-li-width: 368px !default; //整体宽度
+$slideMultiImg-li-height: 480px !default; //整体高度
+$slideMultiImg-li-margin: 20px !default; //margin
+
+// slideTxtBox(Tab切换)
+$slideTxtBox-width: 100% !default; //整体宽度
+$slideTxtBox-hd-height: 40px !default; //头部高度
+$slideTxtBox-hd-line-height: 40px !default; //行高
+$slideTxtBox-hd-title-padding: 0 16px !default; //头部文字
+$slideTxtBox-hd-title-font-size: 18px !default; //头部文字大小
+$slideTxtBox-bd-padding: 15px !default; //内容内边距
+
+

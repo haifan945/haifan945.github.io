@@ -1,0 +1,137 @@
+/**
+ @Name: huiweb
+ @Page: login
+ @Author: HAIFAN
+ @Site: www.webhaifan.com
+ @version:6.0
+ **/
+@import "variables"; //全局变量
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.login {
+  min-height: 100%;
+  background: url("../images/login/login-bg1.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+
+  & > .left {
+    flex: 1;
+    position: relative;
+
+    .title {
+      margin-top: 30%;
+      color: $white;
+
+      h1 {
+        font-size: 64px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba($white, 0.5);
+        animation: anima-downbit 1s both;
+      }
+
+      h5 {
+        font-size: $h5-ft;
+        font-weight: normal;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba($white, 0.8);
+        margin-top: 20px;
+        animation: anima-upbit 1s both;
+      }
+    }
+  }
+
+  & > .right {
+    width: 640px;
+    background-color: $white;
+    animation: anima-bounce-left 1s 0.5s both;
+    position: relative;
+    .login-box {
+      width: 50%;
+      margin: 40% auto 0;
+      .logo {
+        text-align: center;
+        h1 {
+          font-size: $h3-ft;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: $primary;
+          padding-top: 20px;
+          text-shadow: 0 0 10px rgba($primary, 0.5);
+          em {
+            color: $green;
+            text-shadow: 0 0 10px rgba($green, 0.5);
+          }
+        }
+      }
+      .hui-form {
+        margin-top: 50px;
+        &-item {
+          position: relative;
+
+          i {
+            color: $gray-400;
+            transition: all 0.3s;
+            position: absolute;
+            left: 15px;
+            top: calc(50% - 9px);
+            &::before {
+              font-size: 18px;
+            }
+          }
+          .hui-input {
+            padding-left: 40px;
+            &:hover {
+              & ~ i {
+                color: $gray-500;
+              }
+            }
+            &:focus {
+              & ~ i {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+      .hui-btn {
+        width: 100%;
+        color: $white;
+        font-size: $ft-bs;
+        padding: 14px 20px;
+        border-color: $primary;
+        background-color: $primary;
+
+        &:hover,
+        &:active {
+          border-color: $green;
+          background-color: $green;
+        }
+      }
+    }
+    // 版权
+    .copy {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      bottom: 50px;
+      p {
+        line-height: 1.6;
+        font-size: $ft-sm;
+        color: $light-gray;
+        a {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

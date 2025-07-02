@@ -1,0 +1,637 @@
+// 按钮
+.#{$namespace} {
+  &-btn {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    font-weight: $ft-wg-nm;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    text-align: center;
+    font-size: $ft-sm;
+    color: $grey;
+    border-radius: $border-radius;
+    background: $white;
+    padding: 12px 20px;
+    border: 1px solid $gray-300;
+
+    // 字体:14px + padding:上下 12+12 =24px + border上下 1+1=2px，整个按钮高度40px
+
+    & + & {
+      margin-left: 10px;
+    }
+    // 默认按钮经过效果
+    &:focus,
+    &:hover,
+    &:active {
+      color: $primary;
+      background-color: rgba($primary, $alpha: 0.1);
+      border-color: rgba($primary, $alpha: 0.3);
+      outline: 0;
+    }
+
+    &:-moz-focus-inner {
+      border: 0;
+    }
+
+    & [class*="hui-icon-"] + span {
+      margin-left: 5px;
+    }
+
+    &.is-active,
+    &.is-plain:active {
+      color: $primary;
+      border-color: rgba($primary, $alpha: 0.3);
+    }
+
+    // 镂空按钮
+    &.is-plain:focus,
+    &.is-plain:hover {
+      color: $primary;
+      background: $white;
+      border-color: rgba($primary, $alpha: 0.3);
+    }
+    &.is-plain:active {
+      background: $white;
+      outline: 0;
+    }
+
+    // 禁用按钮
+    &.is-disabled {
+      &,
+      &:focus,
+      &:hover {
+        color: #c0c4cc;
+        cursor: not-allowed;
+        background-image: none;
+        background-color: $white;
+        border-color: #ebeef5;
+      }
+      &.hui-btn-text {
+        background-color: transparent;
+      }
+      // 镂空
+      &.is-plain {
+        &,
+        &:hover,
+        &:focus {
+          background-color: $white;
+          border-color: #ebeef5;
+          color: #c0c4cc;
+        }
+      }
+    }
+
+    // 加载按钮
+    &.is-loading {
+      position: relative;
+      pointer-events: none;
+
+      &::before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        border-radius: inherit;
+        background-color: rgba(255, 255, 255, 0.35);
+      }
+    }
+    // 圆角按钮
+    &.is-round {
+      border-radius: 20px;
+      padding: 12px 23px;
+    }
+    // 圆形按钮
+    &.is-circle {
+      border-radius: $border-radius-circle;
+      padding: 12px;
+    }
+
+    // 主要按钮
+    &.btn-primary {
+      color: $white;
+      background-color: $primary;
+      border-color: $primary;
+      &:hover,
+      &:focus,
+      &.is-active,
+      &:active {
+        color: $white;
+        background-color: rgba($primary, $alpha: 0.8);
+        border-color: rgba($primary, $alpha: 0.8);
+      }
+      &:active {
+        outline: none;
+      }
+
+      // 禁用
+      &.is-disabled {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: rgba($primary, $alpha: 0.3);
+          border-color: rgba($primary, $alpha: 0.3);
+        }
+      }
+      // 镂空
+      &.is-plain {
+        & {
+          color: $primary;
+          background: rgba($primary, $alpha: 0.1);
+          border-color: rgba($primary, $alpha: 0.3);
+        }
+        &:hover,
+        &:focus {
+          background: $primary;
+          border-color: $primary;
+          color: $white;
+          outline: 0;
+        }
+        &:active {
+          background: $primary;
+          border-color: $primary;
+          color: $white;
+          outline: none;
+        }
+        // 镂空禁用
+        &.is-disabled {
+          &,
+          &:hover,
+          &:active,
+          &:focus {
+            color: rgba($primary, $alpha: 0.6);
+            background-color: rgba($primary, $alpha: 0.3);
+            border-color: rgba($primary, $alpha: 0.3);
+          }
+        }
+      }
+    }
+
+    // 成功按钮
+    &.btn-success {
+      color: $white;
+      background-color: $green;
+      border-color: $green;
+      &:hover,
+      &:focus {
+        color: $white;
+        background-color: rgba($green, $alpha: 0.8);
+        border-color: rgba($green, $alpha: 0.8);
+      }
+      &:active {
+        outline: none;
+      }
+      &.is-active,
+      &:active {
+        background-color: $green;
+        border-color: $green;
+        color: $white;
+      }
+      // 禁用
+      &.is-disabled {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: rgba($green, $alpha: 0.3);
+          border-color: rgba($green, $alpha: 0.3);
+        }
+      }
+      // 镂空
+      &.is-plain {
+        & {
+          color: $green;
+          background: rgba($green, $alpha: 0.1);
+          border-color: rgba($green, $alpha: 0.3);
+        }
+        &:hover,
+        &:focus {
+          background: $green;
+          border-color: $green;
+          color: $white;
+        }
+        &:active {
+          background: $green;
+          border-color: $green;
+          color: $white;
+          outline: none;
+        }
+        // 镂空禁用
+        &.is-disabled {
+          &,
+          &:hover,
+          &:active,
+          &:focus {
+            color: rgba($green, $alpha: 0.6);
+            background-color: rgba($green, $alpha: 0.3);
+            border-color: rgba($green, $alpha: 0.3);
+          }
+        }
+      }
+    }
+
+    // 警告按钮
+    &.btn-warning {
+      color: $white;
+      background-color: $orange;
+      border-color: $orange;
+      &:hover,
+      &:focus {
+        color: $white;
+        background-color: rgba($orange, $alpha: 0.8);
+        border-color: rgba($orange, $alpha: 0.8);
+      }
+      &:active {
+        outline: none;
+      }
+      &.is-active,
+      &:active {
+        color: $white;
+        background-color: $orange;
+        border-color: $orange;
+      }
+      // 禁用
+      &.is-disabled {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: rgba($orange, $alpha: 0.3);
+          border-color: rgba($orange, $alpha: 0.3);
+        }
+      }
+      // 镂空
+      &.is-plain {
+        & {
+          color: $orange;
+          background: rgba($orange, $alpha: 0.1);
+          border-color: rgba($orange, $alpha: 0.3);
+        }
+        &:hover,
+        &:focus {
+          background: $orange;
+          border-color: $orange;
+          color: $white;
+        }
+        &:active {
+          background: $orange;
+          border-color: $orange;
+          color: $white;
+          outline: none;
+        }
+        // 镂空禁用
+        &.is-disabled {
+          &,
+          &:hover,
+          &:active,
+          &:focus {
+            color: rgba($orange, $alpha: 0.6);
+            background-color: rgba($orange, $alpha: 0.3);
+            border-color: rgba($orange, $alpha: 0.3);
+          }
+        }
+      }
+    }
+
+    // 危险按钮
+    &.btn-danger {
+      color: $white;
+      background-color: $red;
+      border-color: $red;
+      &:hover,
+      &:focus {
+        color: $white;
+        background-color: rgba($red, $alpha: 0.8);
+        border-color: rgba($red, $alpha: 0.8);
+      }
+      &:active {
+        outline: none;
+      }
+      &.is-active,
+      &:active {
+        color: $white;
+        background-color: $red;
+        border-color: $red;
+      }
+      // 禁用
+      &.is-disabled {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: rgba($red, $alpha: 0.3);
+          border-color: rgba($red, $alpha: 0.3);
+        }
+      }
+      // 镂空
+      &.is-plain {
+        & {
+          color: $red;
+          background: rgba($red, $alpha: 0.1);
+          border-color: rgba($red, $alpha: 0.3);
+        }
+        &:hover,
+        &:focus {
+          color: $white;
+          background-color: $red;
+          border-color: $red;
+        }
+        &:active {
+          color: $white;
+          background-color: $red;
+          border-color: $red;
+          outline: none;
+        }
+        // 镂空禁用
+        &.is-disabled {
+          &,
+          &:hover,
+          &:active,
+          &:focus {
+            color: rgba($red, $alpha: 0.6);
+            background-color: rgba($red, $alpha: 0.3);
+            border-color: rgba($red, $alpha: 0.3);
+          }
+        }
+      }
+    }
+
+    // 信息按钮
+    &.btn-info {
+      color: $white;
+      background-color: $light-gray;
+      border-color: $light-gray;
+      &:hover,
+      &:focus {
+        background: $grey;
+        border-color: $grey;
+        color: $white;
+      }
+      &:active {
+        outline: none;
+      }
+      &.is-active,
+      &:active {
+        background-color: $light-gray;
+        border-color: $light-gray;
+        color: $white;
+      }
+      // 禁用
+      &.is-disabled {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: rgba($grey, $alpha: 0.3);
+          border-color: rgba($grey, $alpha: 0.3);
+        }
+      }
+      // 镂空
+      &.is-plain {
+        & {
+          color: $grey;
+          background-color: rgba($grey, $alpha: 0.3);
+          border-color: rgba($grey, $alpha: 0.3);
+        }
+        &:hover,
+        &:focus {
+          color: $white;
+          background-color: $light-gray;
+          border-color: $light-gray;
+        }
+        &:active {
+          color: $white;
+          background-color: $light-gray;
+          border-color: $light-gray;
+          outline: none;
+        }
+        // 镂空禁用
+        &.is-disabled {
+          &,
+          &:hover,
+          &:active,
+          &:focus {
+            color: $grey;
+            background-color: rgba($grey, $alpha: 0.3);
+            border-color: rgba($grey, $alpha: 0.3);
+          }
+        }
+      }
+    }
+
+    // 文字按钮
+    &.btn-text {
+      & {
+        color: $primary;
+        background: transparent;
+        padding-left: 0;
+        padding-right: 0;
+        border-color: transparent;
+      }
+      &:focus,
+      &:hover {
+        color: rgba($primary, $alpha: 0.6);
+        border-color: transparent;
+        background-color: transparent;
+      }
+      &:active {
+        color: $primary;
+        background-color: transparent;
+      }
+      &,
+      &:active {
+        border-color: transparent;
+      }
+      &.is-disabled {
+        &,
+        &:hover,
+        &:focus {
+          border-color: transparent;
+        }
+      }
+    }
+
+    // 中等按钮
+    &.btn-medium {
+      font-size: $ft-sm;
+      padding: 10px 20px;
+      border-radius: 4px;
+      &.is-round {
+        padding: 10px 20px;
+      }
+      &.is-circle {
+        padding: 10px;
+      }
+    }
+    // 小型按钮
+    &.btn-small {
+      font-size: $ft-sm - 2px;
+      border-radius: $border-radius-sm;
+      &,
+      &.is-round {
+        padding: 9px 15px;
+      }
+      &.is-circle {
+        padding: 9px;
+      }
+    }
+    // 超小按钮
+    &.btn-mini {
+      font-size: $ft-sm - 2px;
+      border-radius: $border-radius-sm;
+      &,
+      .is-round {
+        padding: 7px 15px;
+      }
+      &.is-circle {
+        padding: 7px;
+      }
+    }
+    &.btn-fluid{
+      width: 100%;
+    }
+  }
+
+  // 按钮组
+  &-btn-group {
+    & > .hui-btn {
+      &.is-acive,
+      &.is-disabled,
+      &:active,
+      &:hover,
+      &:focus {
+        z-index: 1;
+      }
+    }
+  }
+  // 按钮组
+  &-btn {
+    &-group {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-group::after,
+    &-group::before {
+      content: '';
+      display: table;
+    }
+    &-group::after {
+      content: '';
+      clear: both;
+    }
+
+    &-group > & {
+      float: left;
+      position: relative;
+    }
+    &-group > & + & {
+      margin-left: 0;
+    }
+    &-group > &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &-group > &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &-group > &:first-child:last-child {
+      border-radius: 4px;
+    }
+    &-group > &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &-group > &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &-group > .hui-dropdown > & {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-primary:first-child {
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-primary:last-child {
+      border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-primary:not(:first-child):not(:last-child) {
+      border-left-color: rgba(255, 255, 255, 0.5);
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-success:first-child {
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-success:last-child {
+      border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-success:not(:first-child):not(:last-child) {
+      border-left-color: rgba(255, 255, 255, 0.5);
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-warning:first-child {
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-warning:last-child {
+      border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-warning:not(:first-child):not(:last-child) {
+      border-left-color: rgba(255, 255, 255, 0.5);
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-danger:first-child {
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-danger:last-child {
+      border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-danger:not(:first-child):not(:last-child) {
+      border-left-color: rgba(255, 255, 255, 0.5);
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-info:first-child {
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-info:last-child {
+      border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group &-info:not(:first-child):not(:last-child) {
+      border-left-color: rgba(255, 255, 255, 0.5);
+      border-right-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.#{$namespace} {
+  &-table {
+    width: 100%;
+    background-color: $white;
+    color: $grey;
+    tr {
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+    }
+    th {
+      text-align: left;
+      font-weight: 400;
+    }
+    // 表格头
+    thead {
+      tr {
+        background-color: #f2f2f2;
+      }
+    }
+    // 表格主体
+    tbody {
+      tr {
+        &:hover {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+    td,
+    th {
+      position: relative;
+      padding: 10px 15px;
+      min-height: 20px;
+      line-height: 20px;
+      font-size: 14px;
+    }
+
+    td,
+    th,
+    &[skin="line"],
+    &[skin="row"] {
+      border-width: 1px;
+      border-style: solid;
+      border-color: #e6e6e6;
+    }
+
+    // 隔行换色
+    &[even] {
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    }
+
+    // hui-skin=line  行边框
+    &[skin="line"] {
+      th,
+      td {
+        border-width: 0 0 1px;
+      }
+    }
+    // hui-skin=row  列边框
+    &[skin="row"] {
+      th,
+      td {
+        border-width: 0 1px 0 0;
+      }
+    }
+    // hui-skin=nob  无边框
+    &[skin="nob"] {
+      th,
+      td {
+        border: none;
+      }
+    }
+    // 表格图
+    img {
+      max-width: 100px;
+    }
+    // 大尺寸
+    &[size="lg"] {
+      td,
+      th {
+        padding: 15px 30px;
+      }
+    }
+    // 小尺寸
+    &[size="sm"] {
+      td,
+      th {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+    }
+  }
+}

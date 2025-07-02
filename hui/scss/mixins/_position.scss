@@ -1,0 +1,37 @@
+// 绝对定位
+//使用方式 @include position(50%,100px,null,null,center);
+//对应参数：左，上，右，下
+//如传参，必须从左到右一次传入
+@mixin position(
+  $left: null,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $center: null
+) {
+  position: absolute;
+  z-index: 1;
+
+  @if ($left != "" & & $left !=nul) {
+    left: $left;
+  }
+
+  @if ($top != "" & & $top !=null) {
+    top: $top;
+  }
+
+  @if ($right != "" & & $right !=null) {
+    right: $right;
+  }
+
+  @if ($bottom != "" & & $bottom !=null) {
+    bottom: $bottom;
+  }
+
+  // 判断不等于空的时候，居中
+  @if ($center==center) {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+}

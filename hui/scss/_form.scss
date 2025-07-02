@@ -1,0 +1,288 @@
+.#{$namespace} {
+  &-form {
+    // item
+    &-item {
+      @include clear();
+      *zoom: 1;
+      margin-bottom: 15px;
+      // font-size: 0;
+
+      .item {
+        &-label,
+        &-block,
+        &-inline {
+          position: relative;
+        }
+
+        &-inline {
+          float: left;
+          @include clear();
+
+          &.inline-column {
+            display: block;
+            .item-label,
+            label {
+              float: none;
+              text-align: left;
+              padding-left: 0;
+              &::before {
+                content: "*";
+                display: inline-block;
+                margin-right: 5px;
+                vertical-align: middle;
+                color: $red;
+              }
+            }
+            .item-block {
+              margin-left: 0;
+            }
+          }
+          &.inline-big {
+            label,
+            .item-label {
+              width: 98px;
+            }
+            .item-block {
+              margin-left: 98px;
+            }
+          }
+        }
+
+        // 文字
+        &-label {
+          float: left;
+          display: block;
+          width: 80px;
+          color: $grey;
+          font-size: 14px;
+          font-weight: 400;
+          padding: 10px 12px;
+          line-height: 20px;
+          text-align: right;
+        }
+
+        &-block {
+          margin-left: 80px;
+          min-height: 40px;
+        }
+
+        &-inline {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      label {
+        float: left;
+        display: block;
+        width: 80px;
+        color: $grey;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 10px 12px;
+        line-height: 20px;
+        text-align: right;
+      }
+    }
+
+    // 组
+    &-group {
+      width: 100%;
+      line-height: normal;
+      display: inline-table;
+      border-collapse: separate;
+      border-spacing: 0;
+
+      .#{$namespace}-input {
+        vertical-align: middle;
+        display: table-cell;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .#{$namespace}-append {
+        vertical-align: middle;
+        display: table-cell;
+        position: relative;
+        width: 1px;
+        white-space: nowrap;
+
+        .#{$namespace}-btn {
+          display: inline-block;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  // input
+  &-input,
+  &-textarea {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    width: 100%;
+    height: 40px;
+    outline: none;
+    line-height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    background-color: $white;
+    background-image: none;
+    transition: all 0.3s;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-color: #e5e5e5;
+    position: relative;
+
+    &:hover {
+      border-color: #d2d2d2;
+    }
+
+    &:focus,
+    &:active {
+      border-color: $primary;
+    }
+
+    // placeholder
+    &::-webkit-input-placeholder {
+      line-height: 1.3;
+      color: #999;
+    }
+  }
+
+  // textarea
+  &-textarea {
+    height: auto;
+    line-height: 20px;
+    min-height: 100px;
+    padding: 6px 10px;
+    resize: vertical;
+  }
+}
+// input-placeholder
+// textarea-placeholder
+input,
+textarea {
+  &::input-placeholder,
+  &::-webkit-input-placeholder,
+  &::-ms-input-placeholder,
+  &::-moz-placeholder {
+    font-size: $ft-bs;
+    color: $gray-500;
+  }
+
+  &:focus {
+    &::-webkit-input-placeholder,
+    &::-moz-input-placeholder {
+      color: $black;
+    }
+  }
+}
+
+.#{$namespace} {
+  //单选
+  &-form-radio {
+    input {
+      display: none;
+    }
+    label {
+      display: inline-block;
+      padding: 9px 0px;
+      line-height: 20px;
+      padding-left: 50px;
+      position: relative;
+      cursor: pointer;
+      &:active {
+        color: #000;
+      }
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #e6e6e6;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        border-radius: 50%;
+      }
+    }
+
+    input:checked + label:before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #5897fb;
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      border-radius: 50%;
+      z-index: 1;
+      animation: anima-scale 0.3s both;
+      -webkit-animation: anima-scale 0.3s both;
+    }
+    input:checked + label:after {
+      background-color: #ffffff;
+      border: 1px solid #5897fb;
+      animation: anima-scale 0.3s both;
+      -webkit-animation: anima-scale 0.3s both;
+    }
+  }
+
+  // 多选框
+  &-form-checkbox {
+    input {
+      display: none;
+    }
+    label {
+      padding: 9px 0px;
+      line-height: 20px;
+      display: inline-block;
+      position: relative;
+      padding-left: 50px;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:active {
+        background: #ffffff;
+      }
+      &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border: 1px solid #e6e6e6;
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      &:hover::after {
+        border: 1px solid #5897fb;
+      }
+    }
+
+    input:checked + label:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      border-left: 2px solid #5897fb;
+      border-bottom: 2px solid #5897fb;
+      height: 6px;
+      width: 12px;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+  }
+}

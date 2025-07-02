@@ -1,0 +1,22 @@
+// 画三角形
+@mixin triangle($width: 8px, $direction: top, $color:$gray-400) {
+	border: $width solid transparent;
+	// display: block;
+	display: inline-block;
+	@if ($direction == top) {
+		//上三角
+		border-bottom-color: $color;
+	}
+	@if ($direction == bottom) {
+		//下 角
+		border-top-color: $color;
+	}
+	@if ($direction == left) {
+		//左三角
+		border-right-color: $color;
+	}
+	@if ($direction == right) {
+		//右三角
+		border-left-color: $color;
+	}
+}

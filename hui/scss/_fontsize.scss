@@ -1,0 +1,34 @@
+
+// 字体大小
+.ft {
+  &14 {
+    font-size: $ft-sm;
+  }
+
+  &16 {
+    font-size: $ft-bs;
+  }
+  &18 {
+    font-size: $ft-lg;
+  }
+
+  &20 {
+    font-size: $ft-bs + 4px;
+  }
+
+  &24 {
+    font-size: $ft-bg;
+  }
+
+  &32 {
+    font-size: $ft-max;
+  }
+
+  &36 {
+    font-size: $ft-max-lg;
+  }
+
+  &40 {
+    font-size: $ft-max-bg;
+  }
+}

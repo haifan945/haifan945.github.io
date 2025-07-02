@@ -1,0 +1,94 @@
+.#{$namespace} {
+  &-pagination {
+    font-size: 0;
+    // 页数
+    .#{$namespace}-pager {
+      display: inline-block;
+      margin: 0 4px;
+
+      li {
+        display: inline-block;
+        margin-left: 4px;
+        a {
+          display: block;
+          font-size: $ft-bs;
+          color: $gray-900;
+          min-width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          border: 1px solid #e5e5e5;
+          border-radius: 3px;
+          transition: all 0.3s;
+
+          &:hover {
+            color: $primary;
+          }
+
+          &.active {
+            background-color: $primary;
+            border: 1px solid $primary;
+            color: $white;
+          }
+        }
+      }
+    }
+    // 总条数
+    .total {
+      display: inline-block;
+      font-size: $ft-sm;
+      padding-left: 10px;
+      color: $gray-600;
+    }
+
+    // 跳转到文字
+    .jump {
+      display: inline-block;
+      font-size: $ft-sm;
+      color: $gray-600;
+      padding-right: 10px;
+    }
+
+    // 跳转到input
+    .input {
+      display: inline-block;
+      font-size: $ft-sm;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border: none;
+      transition: all 0.3s;
+      text-align: center;
+      padding: 0 6px;
+      border-radius: 3px;
+      border: 1px solid #e5e5e5;
+      background: $white;
+      margin: 0 10px;
+    }
+
+    // 上一页，下一页,确定
+    .btn-flip,
+    .btn-confirm {
+      cursor: pointer;
+      min-width: 54px;
+      display: inline-block;
+      font-size: $ft-sm;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: top;
+      border: none;
+      color: $gray-900;
+      padding: 0 6px;
+      border-radius: 3px;
+      border: 1px solid #e5e5e5;
+      background: $white;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $primary;
+        border: 1px solid $primary;
+        color: $white;
+      }
+    }
+  }
+}

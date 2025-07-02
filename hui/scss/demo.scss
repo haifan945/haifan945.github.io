@@ -1,0 +1,164 @@
+@import "variables";
+@import "mixins/Huimixins";
+.flex-demo {
+	background-color: hotpink;
+	width: 200px;
+	height: 200px;
+	margin-top: 36px;
+	@include flexBox(column, space-between);
+	div {
+		flex: 1;
+		&:first-child {
+			background-color: aquamarine;
+		}
+		&:last-child {
+			background-color: chocolate;
+		}
+	}
+}
+
+.position-demo {
+	background-color: hotpink;
+	width: 200px;
+	height: 200px;
+
+	@include position();
+	top: 0;
+	right: 0;
+}
+.position-demo-sticky {
+	width: 100%;
+	height: 36px;
+	background-color: chartreuse;
+	@include position();
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	margin-top: 40px;
+}
+.transition-demo {
+	background-color: aquamarine;
+	margin-top: 40px;
+	@include transition();
+			
+}
+.textOverflow-demo {
+	margin-top: 12px;
+	margin-bottom: 40px;
+	background-color: #fff;
+	@include txtover(30%);
+}
+.textOverflow-demo1 {
+	margin-top: 12px;
+	margin-bottom: 40px;
+	background-color: #fff;
+	@include txtover(30%);
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	white-space: normal;
+	line-height: 1.6;
+}
+
+.triangle-demo {
+	@include triangle(30px, top, $red);
+
+	       
+}
+.triangle-demo1 {
+	@include triangle(30px, bottom, $pink);
+
+}
+.triangle-demo2 {
+	@include triangle(30px, left, $yellow);
+}
+.triangle-demo3 {
+	@include triangle(30px, right, $teal);
+}
+
+.shadow-demo {
+	margin-top: 24px;
+	background-color: $teal;
+	width: 200px;
+	height: 100px;
+	// @include box-shadow();
+}
+.img-demo img {
+	@include img-fluid();
+	margin-top: 40px;
+}
+
+.border-radius-demo {
+	margin-top: 40px;
+	background-color: $yellow;
+	width: 200px;
+	height: 100px;
+	@include border-radius();
+}
+.border-radius-demo1 {
+	margin-top: 40px;
+	background-color: $green;
+	width: 200px;
+	height: 100px;
+	@include border-radius(20px);
+}
+
+.border-radius-demo3 {
+	margin-top: 40px;
+	background-color: $cyan;
+	width: 200px;
+	height: 100px;
+	@include border-top-radius(20px);
+}
+.border-radius-demo4 {
+	margin-top: 40px;
+	background-color: $orange;
+	width: 200px;
+	height: 100px;
+	@include border-end-radius(20px);
+}
+.border-radius-demo5 {
+	margin-top: 40px;
+	background-color: $pink;
+	width: 200px;
+	height: 100px;
+	@include border-bottom-radius(20px);
+}
+.border-radius-demo6 {
+	margin-top: 40px;
+	background-color: $indigo;
+	width: 200px;
+	height: 100px;
+	@include border-start-radius(20px);
+}
+.border-radius-demo7 {
+	margin-top: 40px;
+	background-color: $green;
+	width: 200px;
+	height: 100px;
+	@include border-top-start-radius(20px);
+}
+
+.border-radius-demo8 {
+	margin-top: 40px;
+	background-color: $green;
+	width: 200px;
+	height: 100px;
+	@include border-bottom-end-radius(20px);
+}
+
+.border-radius-demo9 {
+	margin-top: 40px;
+	background-color: $cyan;
+	width: 200px;
+	height: 100px;
+	@include border-bottom-start-radius(20px);
+}
+.border-radius-demo10 {
+	margin-top: 40px;
+	background-color: $orange;
+	width: 200px;
+	height: 100px;
+	@include border-end-radius(30px);
+}
+  

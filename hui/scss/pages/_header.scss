@@ -1,0 +1,239 @@
+/*页头*/
+@import "../_variables"; //全局变量
+@import "../mixins/Huimixins"; //方法混合
+/*header*/
+.header {
+  height: 260px;
+  background: url(../images/head-bg.png) no-repeat;
+  background-size: 100% 100%;
+
+  //top
+  &-top {
+    height: 50px;
+    line-height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+
+    a {
+      display: block;
+      color: $white;
+      font-size: $ft-bs;
+      height: 50px;
+      line-height: 50px;
+      @include transition();
+
+      &:hover {
+        color: $yellow;
+      }
+
+      img {
+        margin-right: 5px;
+      }
+    }
+    /*left*/
+    .left {
+      .col {
+        padding: 0 24px;
+        // 添加分割线
+        &::after {
+          height: 10px;
+          width: 1px;
+          background-color: $white;
+          display: inline-block;
+          position: absolute;
+          top: 20px;
+          right: 0px;
+        }
+
+        // 删除第一个padding-left值
+        &:first-child {
+          padding-left: 0;
+        }
+
+        // 删除最后一个分隔线
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    /*right*/
+    .right {
+      .col {
+        padding: 0 10px;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
+    // 集约化网站下拉菜单
+    .intensive-side {
+      //网站导航
+      .site-nav {
+        width: 660px;
+        padding: 30px;
+        background-color: $white;
+        box-shadow: $box-shadow;
+        @include position(null, 50px, 0);
+        z-index: 999;
+        animation: hui-upbit 0.3s both;
+        display: none;
+
+        h3 {
+          height: 36px;
+          line-height: 36px;
+          font-size: $ft-bs;
+          color: $primary;
+        }
+
+        .list {
+          padding-bottom: 10px;
+          @include clear();
+
+          li {
+            width: 33.3333333%;
+            height: 28px;
+            line-height: 28px;
+            float: left;
+
+            a {
+              font-size: $ft-sm;
+              color: $grey;
+              @include transition();
+
+              &:hover,
+              &:focus {
+                color: $primary;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .site-nav {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // brand
+  &-brand {
+    padding-top: 50px;
+    .left {
+      // logo
+      .logo {
+        width: 610px;
+        height: 106px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .right {
+      // 搜索框
+      .search {
+        // 下拉选择器
+        &-select {
+          width: 100px;
+          height: 60px;
+          line-height: 60px;
+          @include position(0, 0);
+
+          span {
+            color: $light-gray;
+            font-size: 18px;
+            padding-left: 20px;
+            cursor: pointer;
+            @include transition();
+            &:hover,
+            &:focus {
+              color: $primary;
+            }
+          }
+
+          ul {
+            display: none;
+            background-color: $white;
+            padding-bottom: 12px;
+            animation: hui-upbit 0.3s both;
+            @include border-bottom-radius();
+
+            li {
+              height: 32px;
+              line-height: 32px;
+              text-align: center;
+              cursor: pointer;
+
+              &:hover {
+                color: $yellow;
+                background-color: $primary;
+              }
+            }
+          }
+
+          // 上下三角形
+          .triangle {
+            display: block;
+            @include position(null, 20px, 10px);
+            &::before {
+              content: "";
+              @include triangle(4px, top, $gray-500);
+              margin-bottom: 3px;
+            }
+            &::after {
+              content: "";
+              @include triangle(4px, bottom, $primary);
+            }
+          }
+          // 分割线
+          &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 20px;
+            background-color: $gray-500;
+            @include position(null, 20px, 0px);
+          }
+        }
+        // 搜索input
+        &-input {
+          font-size: $ft-bs;
+          color: $dark-grey;
+          width: 360px;
+          height: 60px;
+          line-height: 60px;
+          padding-left: 120px;
+          background: rgba(255, 255, 255, 0.8);
+          @include border-radius();
+        }
+
+        // 搜索btn
+        &-btn {
+          width: 130px;
+          height: 60px;
+          line-height: 60px;
+          color: $white;
+          font-size: 20px;
+          margin-left: 10px;
+          padding-left: 28px;
+          background: url(../images/icon-search.png) no-repeat 24px center
+            $primary;
+          @include border-radius();
+          @include transition();
+          cursor: pointer;
+
+          &:hover {
+            background: url(../images/icon-search.png) no-repeat 24px center
+              $yellow;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+@import "../_variables"; //全局变量
+@import "../mixins/Huimixins"; //方法混合
+/*导航*/
+.navbar {
+    height: $navbar-ht;
+    background: $nav-bg;
+    position: relative;
+
+    .nav {
+        height: $nav-ht;
+        @include clear();
+        &-item {
+            float: left;
+            height: $nav-item-ht;
+            padding: 0 52px;
+            *display: inline;
+            *zoom: 1;
+            vertical-align: middle;
+
+            &:first-child {
+                padding-left: 5px;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+
+            & > a {
+                display: block;
+                height: $nav-ht-a;
+                line-height: $nav-ht-a;
+                color: $white;
+                font-size: $nav-ft;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 0%;
+                    height: 5px;
+                    background: $yellow;
+                    @include border-radius();
+                    @include transition();
+                    @include position(null, null, null, 0, center);
+                }
+
+                &:hover {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                img {
+                    padding-bottom: 5px;
+                    margin-right: 10px;
+                }
+            }
+
+            &.on {
+                & > a {
+                    &::after {
+                        content: '';
+                        width: 100%;
+                    }
+                }
+                .sub-nav {
+                    display: block;
+                }
+            }
+
+            // 二级导航
+            .sub-nav {
+                width: 100%;
+                height: $sub-nav-size;
+                background-color: $sub-nav-bg;
+                border-bottom: 1px solid $yellow;
+                @include position(0, 60px);
+                @include transition();
+                overflow: hidden;
+                display: none;
+
+                .hui-row-float {
+                    text-align: center;
+                     font-size: 0;
+                     //font-size: 0;删除子元素的变成 display: inline-block的空隙
+                    .col {
+                        // width: 12.5%;
+                        float: none;
+                        display: inline-block;
+                        height: $sub-nav-item-ht;
+                        padding: 0 20px;
+                        *display: inline;
+                        *zoom: 1;
+                        vertical-align: middle;
+                        a {
+                            display: block;
+                            font-size: $ft-bs;
+                            height: $sub-nav-ht-a;
+                            line-height: $sub-nav-ht-a;
+                            &:hover {
+                                color: $yellow;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

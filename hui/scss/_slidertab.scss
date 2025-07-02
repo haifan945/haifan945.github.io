@@ -1,0 +1,175 @@
+.#{$namespace} {
+  // 常规上下布局
+  &-slider-tab {
+    position: relative;
+    // hd
+    .hd {
+      font-size: 0;
+      position: relative;
+
+      .title {
+        display: inline-block;
+        padding: 20px 0;
+        font-size: $ft-bg;
+        margin-right: 20px;
+        line-height: 1;
+        cursor: pointer;
+        position: relative;
+
+        // 下标
+        &::after {
+          content: "";
+          display: block;
+          width: 0%;
+          height: 3px;
+          background-color: $primary;
+          @include position(null, null, null, 7px, center);
+          @include transition();
+        }
+        &.on {
+          color: $primary;
+          font-weight: bold;
+          //   下标
+          &::after {
+            width: 80%;
+          }
+        }
+      }
+      .more {
+        @include position(null, 22px, 0);
+        a {
+          font-size: $ft-sm;
+          color: $light-gray;
+          transition: all 0.3s;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+    // bd{
+    .bd {
+      .hui-list {
+        .list-group {
+          .item {
+            &::after {
+              content: "";
+              width: 100%;
+              height: 1px;
+              @include position(0, null, null, 0);
+              border-bottom: 1px dashed rgba($black, 0.1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 左右布局
+  &-slider-tab-col {
+    width: 100%;
+    position: relative;
+    @include clear();
+    .hd {
+      width: 120px;
+      float: left;
+      .title {
+        display: block;
+        background-color: rgba($black, 0.05);
+        margin-bottom: 10px;
+        text-align: center;
+        padding: 15px 0;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: $border-radius;
+        position: relative;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &::after {
+          content: "";
+          @include triangle(6px, right, rgba($primary, 0));
+          @include position(null, 18px, -6px, null);
+          transition: all 0.3s;
+        }
+        &.on {
+          background-color: $primary;
+          color: $white;
+          &::after {
+            border-left-color: rgba($primary, 1);
+            right: -12px;
+          }
+        }
+      }
+    }
+    .tempWrap {
+      float: left;
+      height: 296px;
+      margin-left: 20px;
+    }
+    .bd {
+      height: 100%;
+      width: 1140px; //需要固定宽度
+    }
+  }
+
+  // 嵌套布局
+  // 嵌套父盒子
+  &-slider-nest {
+    .hd {
+      .title {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+  // 嵌套子盒子
+  &-slider-inBox {
+    width: 100%;
+    position: relative;
+    @include clear();
+    // margin-top: 30px;
+    .inHd {
+      width: 120px;
+      float: left;
+      .title {
+        display: block;
+        background-color: rgba($black, 0.05);
+        margin-bottom: 10px;
+        text-align: center;
+        padding: 15px 0;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: $border-radius;
+        position: relative;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &::after {
+          content: "";
+          @include triangle(6px, right, rgba($primary, 0));
+          @include position(null, 18px, -6px, null);
+          transition: all 0.3s;
+        }
+        &.on {
+          background-color: $primary;
+          color: $white;
+          &::after {
+            border-left-color: rgba($primary, 1);
+            right: -12px;
+          }
+        }
+      }
+    }
+    .inBd,
+    .tempWrap {
+      width: calc(100% - 140px);
+      float: left;
+      height: 168px;
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+
+// @import "mixins/Huimixins"; //方法混合
+// 面包屑
+.#{$namespace} {
+  &-breadcrumb {
+    padding: 30px 0px 20px 0;
+    @include clear();
+    border-bottom: 1px solid #f0f0f0;
+
+    a {
+      float: left;
+      color: #abacae;
+      &:hover {
+        color: $primary;
+      }
+
+      &::after {
+        content: ">";
+        display: inline-block;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      &::last-child {
+        color: #0d1c28;
+      }
+      &::last-child::after {
+        display: none;
+      }
+    }
+    span {
+      float: left;
+      color: #0d1c28;
+    }
+  }
+}

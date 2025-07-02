@@ -1,0 +1,155 @@
+// 颜色
+.cl {
+  &-primary {
+    color: $primary !important;
+  }
+
+  &-white {
+    color: $white !important;
+  }
+
+  &-black {
+    color: $black !important;
+  }
+
+  &-dk-grey {
+    color: $dark-grey !important;
+  }
+
+  &-grey {
+    color: $grey !important;
+  }
+
+  &-lt-gray {
+    color: $light-gray !important;
+  }
+
+  &-blue {
+    color: $blue !important;
+  }
+
+  &-indigo {
+    color: $indigo !important;
+  }
+
+  &-pink {
+    color: $pink !important;
+  }
+
+  &-red {
+    color: $red !important;
+  }
+
+  &-orange {
+    color: $orange !important;
+  }
+
+  &-yellow {
+    color: $yellow !important;
+  }
+
+  &-teal {
+    color: $teal !important;
+  }
+
+  &-green {
+    color: $green !important;
+  }
+
+  &-cyan {
+    color: $cyan !important;
+  }
+
+  &-steelblue {
+    color: $steelblue !important;
+  }
+}
+
+// 背景色
+.bg {
+  &-primary {
+    background-color: $primary !important;
+  }
+
+  &-white {
+    background-color: $white !important;
+  }
+
+  &-black {
+    background-color: $black !important;
+  }
+
+  &-dk-grey {
+    background-color: $dark-grey !important;
+  }
+
+  &-grey {
+    background-color: $grey !important;
+  }
+
+  &-lt-gray {
+    background-color: $light-gray !important;
+  }
+
+  &-blue {
+    background-color: $blue !important;
+  }
+
+  &-indigo {
+    background-color: $indigo !important;
+  }
+
+  &-pink {
+    background-color: $pink !important;
+  }
+
+  &-red {
+    background-color: $red !important;
+  }
+
+  &-orange {
+    background-color: $orange !important;
+  }
+
+  &-yellow {
+    background-color: $yellow !important;
+  }
+
+  &-teal {
+    background-color: $teal !important;
+  }
+
+  &-green {
+    background-color: $green !important;
+  }
+
+  &-cyan {
+    background-color: $cyan !important;
+  }
+
+  &-steelblue {
+    background-color: $steelblue !important;
+  }
+}
+
+// 背景色上的文字
+.bg {
+  &-primary,
+  // &-white,
+  &-black,
+  &-dk-grey,
+  &-grey,
+  &-lt-gray,
+  &-blue,
+  &-indigo,
+  &-pink,
+  &-red,
+  &-orange,
+  &-yellow,
+  &-teal,
+  &-green,
+  &-cyan,
+  &-steelblue {
+    color: $white !important;
+  }
+}
