@@ -1,1 +1,1403 @@
 
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>少儿编程答题</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E88E5',
+                        secondary: '#FF9800',
+                        success: '#4CAF50',
+                        danger: '#F44336',
+                        neutral: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif']
+                    },
+                    animation: {
+                        'bounce-short': 'bounce 0.5s ease-in-out',
+                        'pulse-fast': 'pulse 1s ease-in-out',
+                        'shake': 'shake 0.5s ease-in-out'
+                    },
+                    keyframes: {
+                        shake: {
+                            '0%, 100%': {
+                                transform: 'translateX(0)'
+                            },
+                            '25%': {
+                                transform: 'translateX(-5px)'
+                            },
+                            '75%': {
+                                transform: 'translateX(5px)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            .card-shadow {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .btn-shadow {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .btn-shadow:active {
+                transform: translateY(2px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-neutral min-h-screen">
+    <!-- 页面容器 - 大屏版 -->
+    <div id="app" class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- 页面内容将通过JavaScript动态加载 -->
+    </div>
+
+    <script>
+        // 页面路由管理
+        const router = {
+            routes: {},
+            currentRoute: null,
+
+            addRoute(path, handler) {
+                this.routes[path] = handler;
+            },
+
+            navigateTo(path, params = {}) {
+                this.currentRoute = path;
+                const handler = this.routes[path];
+                if (handler) {
+                    handler(params);
+                }
+            }
+        };
+
+        // 按类别组织的答题数据 - Scratch按级别分类
+        const allQuizData = {
+            scratch: {
+                // Scratch 1级 - 入门级题目
+                level1: [{
+                        "id": 1001,
+                        "type": "single",
+                        "question": "2024年10月8日，诺贝尔物理学奖“意外地”颁给了两位计算机科学家约翰·霍普菲尔德（John J. Hopfield）和杰弗里·辛顿（Geoffrey E. Hinton）。这两位科学家的主要研究方向是？",
+                        "options": [
+                            "天体物理",
+                            "流体力学",
+                            "人工智能",
+                            "量子理论"
+                        ],
+                        "answer": 2,
+                        "explanation": "约翰·霍普菲尔德和杰弗里·辛顿都是人工智能领域的先驱，霍普菲尔德提出霍普菲尔德网络，辛顿是深度学习的重要贡献者。",
+                        "category": "科技常识",
+                        "difficulty": "easy",
+                        "points": 3
+                    },
+                    {
+                        "id": 1002,
+                        "type": "single",
+                        "question": "点击小绿旗后，小女孩跳舞的效果会呈现在？",
+                        "image": "https://img.icons8.com/color/96/000000/dancer.png",
+                        "options": [
+                            "模块区",
+                            "脚本区",
+                            "舞台区",
+                            "角色区"
+                        ],
+                        "answer": 2,
+                        "explanation": "在Scratch中，角色执行程序的效果会呈现在舞台区。",
+                        "category": "Scratch",
+                        "subcategory": "界面基础",
+                        "difficulty": "easy",
+                        "points": 3
+                    },
+                    {
+                        "id": 1003,
+                        "type": "single",
+                        "question": "默认小猫角色，执行下面代码，小猫的方向为？",
+                        "image": "https://img.icons8.com/color/96/000000/cat.png",
+                        "options": [
+                            "-165度",
+                            "165度",
+                            "-15度",
+                            "15度"
+                        ],
+                        "answer": 0,
+                        "explanation": "根据Scratch方向系统，面向-180到180度，-165度指向左下方。",
+                        "category": "Scratch",
+                        "subcategory": "运动方向",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 1004,
+                        "type": "single",
+                        "question": "想要实现程序执行后，舞台始终呈现每隔0.2秒切换一次背景的效果，正确的程序是？",
+                        "image": "https://img.icons8.com/color/96/000000/background.png",
+                        "options": [
+                            "当绿旗被点击 → 重复执行 → 等待0.2秒 → 下一个背景",
+                            "当绿旗被点击 → 重复执行 → 下一个背景 → 等待0.2秒",
+                            "当绿旗被点击 → 重复执行 → 下一个背景",
+                            "当绿旗被点击 → 等待0.2秒 → 下一个背景 → 重复执行"
+                        ],
+                        "answer": 0,
+                        "explanation": "正确顺序：先等待0.2秒，再切换背景，这样才有间隔效果。",
+                        "category": "Scratch",
+                        "subcategory": "背景控制",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 1005,
+                        "type": "single",
+                        "question": "舞台如下图所示，执行下面程序，小猫最终碰到的角色是？",
+                        "image": "https://img.icons8.com/color/96/000000/touch.png",
+                        "options": [
+                            "Glow-A",
+                            "Glow-B",
+                            "Glow-C",
+                            "Glow-D"
+                        ],
+                        "answer": 1,
+                        "explanation": "根据程序逻辑和角色位置，小猫会碰到Glow-B。",
+                        "category": "Scratch",
+                        "subcategory": "碰撞检测",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 1006,
+                        "type": "single",
+                        "question": "默认小猫角色，初始位置为舞台中央，下面哪组程序与所给程序执行的效果是一样的？",
+                        "image": "https://img.icons8.com/color/96/000000/programming.png",
+                        "options": [
+                            "当按下1键 → 面向0方向 → 移到x:0 y:0 → 等待1秒 → 面向90方向 → 移动100步",
+                            "当绿旗被点击 → 面向0方向 → 移到x:0 y:0 → 等待1秒 → 面向90方向 → 移动100步",
+                            "当绿旗被点击 → 移动100步 → 等待1秒 → 移到x:0 y:0",
+                            "当按下1键 → 移动100步 → 等待1秒 → 移到x:0 y:0"
+                        ],
+                        "answer": 0,
+                        "explanation": "原程序由按下1键触发，执行顺序为复位后等待1秒再移动。",
+                        "category": "Scratch",
+                        "subcategory": "事件控制",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 1007,
+                        "type": "single",
+                        "question": "运行下面哪组程序，可以让角色的运动轨迹是正方形？",
+                        "image": "https://img.icons8.com/color/96/000000/square.png",
+                        "options": [
+                            "重复执行4次 → 移动100步 → 右转90度",
+                            "重复执行4次 → 移动100步 → 左转90度",
+                            "重复执行4次 → 移动100步 → 右转120度",
+                            "重复执行3次 → 移动100步 → 右转120度"
+                        ],
+                        "answer": 1,
+                        "explanation": "正方形需要90度转角，左转或右转90度都可以，执行4次。",
+                        "category": "Scratch",
+                        "subcategory": "图形绘制",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 1008,
+                        "type": "single",
+                        "question": "默认小猫角色，下面哪组程序可以实现，点击绿旗后，小猫一边走一边叫的效果？",
+                        "image": "https://img.icons8.com/color/96/000000/cat-footprint.png",
+                        "options": [
+                            "当绿旗被点击 → 重复执行 → 移动10步 → 播放声音喵",
+                            "当绿旗被点击 → 播放声音喵 → 重复执行 → 移动10步",
+                            "当绿旗被点击 → 移动10步 → 重复执行 → 播放声音喵",
+                            "当绿旗被点击 → 重复执行 → 播放声音喵 → 移动10步"
+                        ],
+                        "answer": 0,
+                        "explanation": "需要将移动和播放声音放在重复执行内才能持续一边走一边叫。",
+                        "category": "Scratch",
+                        "subcategory": "声音控制",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 1009,
+                        "type": "single",
+                        "question": "运行下面程序，红色框内应选择什么才能让背景变为 Castle 4？",
+                        "image": "https://img.icons8.com/color/96/000000/castle.png",
+                        "options": [
+                            "8",
+                            "4",
+                            "2",
+                            "1"
+                        ],
+                        "answer": 0,
+                        "explanation": "下一个背景积木需要执行8次才能从当前背景切换到Castle 4。",
+                        "category": "Scratch",
+                        "subcategory": "背景切换",
+                        "difficulty": "hard",
+                        "points": 3
+                    },
+                    {
+                        "id": 1010,
+                        "type": "single",
+                        "question": "要想实现把鼠标放到星星上面，星星就开始旋转的效果，下图中缺少的积木是？",
+                        "image": "https://img.icons8.com/color/96/000000/star.png",
+                        "options": [
+                            "当角色被点击",
+                            "当碰到鼠标指针",
+                            "当按下空格键",
+                            "当背景换成"
+                        ],
+                        "answer": 1,
+                        "explanation": "需要'当碰到鼠标指针'事件来检测鼠标悬停。",
+                        "category": "Scratch",
+                        "subcategory": "事件交互",
+                        "difficulty": "medium",
+                        "points": 3
+                    },
+                    {
+                        "id": 2001,
+                        "type": "true_false",
+                        "question": "小球角色的初始位置为舞台中心，用鼠标点击小球可以让小球向舞台的右上方移动？",
+                        "answer": false,
+                        "explanation": "需要编写程序响应点击事件才能实现移动，仅点击本身不会让角色移动。",
+                        "category": "Scratch",
+                        "subcategory": "事件编程",
+                        "difficulty": "easy",
+                        "points": 4
+                    },
+                    {
+                        "id": 2002,
+                        "type": "true_false",
+                        "question": "小华、小刚和小强三人，他们各自喜欢一种运动：篮球、足球和羽毛球。若小华不喜欢篮球，小刚喜欢羽毛球，则小强喜欢的运动是篮球。",
+                        "answer": true,
+                        "explanation": "推理：小华不喜欢篮球，小刚喜欢羽毛球，所以小华喜欢足球，小强喜欢篮球。",
+                        "category": "逻辑推理",
+                        "difficulty": "medium",
+                        "points": 4
+                    },
+                    {
+                        "id": 2003,
+                        "type": "true_false",
+                        "question": "复制角色Cat，可以得到一个新的角色，但Cat的程序不会被复制到新的角色中。",
+                        "answer": false,
+                        "explanation": "在Scratch中复制角色时，程序也会被复制到新角色中。",
+                        "category": "Scratch",
+                        "subcategory": "角色管理",
+                        "difficulty": "easy",
+                        "points": 4
+                    },
+                    {
+                        "id": 2004,
+                        "type": "true_false",
+                        "question": "舞台区和角色列表区如下图所示，三个角色的图层关系从后向前依次是Gift、Frank、Buildings。",
+                        "answer": false,
+                        "explanation": "根据Scratch图层规则，Buildings应该在最后层作为背景。",
+                        "category": "Scratch",
+                        "subcategory": "图层关系",
+                        "difficulty": "medium",
+                        "points": 4
+                    },
+                    {
+                        "id": 2005,
+                        "type": "true_false",
+                        "question": "若你要为制作的Scratch作品配一个不超过5秒的背景音乐，以下音乐Chill可以达到要求。",
+                        "answer": true,
+                        "explanation": "音乐Chill时长约4.8秒，不超过5秒要求。",
+                        "category": "Scratch",
+                        "subcategory": "声音素材",
+                        "difficulty": "easy",
+                        "points": 4
+                    },
+                    {
+                        "id": 3001,
+                        "type": "programming",
+                        "title": "火箭回收",
+                        "image": "https://img.icons8.com/color/96/000000/rocket.png",
+                        "description": "实现火箭回收的Scratch程序",
+                        "requirements": [
+                            "点击绿旗，舞台背景换成CityWithWater",
+                            "点击绿旗，角色Paddle的初始位置为(X=-200到200之间的随机数,Y=-120)，初始颜色特效为0，颜色特效不断增加25",
+                            "点击绿旗，角色Rocketship的初始位置为(X=-200到200之间的随机数,Y=120)，初始方向为90°，初始大小为50，初始造型为'rocketship-b'",
+                            "角色Rocketship在播放声音space ripple的同时不断向下降落(y坐标每次减少2)",
+                            "在下落的过程中，如果碰到Paddle，那么换成rocketship-d造型，说'回收成功'2秒，停止全部脚本",
+                            "在下落的过程中，如果碰到舞台边缘，那么换成rocketship-e造型，说'回收失败'2秒，停止全部脚本"
+                        ],
+                        "hints": [
+                            "功能(1)写在背景代码区",
+                            "功能(2)写在角色Paddle代码区",
+                            "功能(3)(4)(5)(6)写在角色Rocketship代码区"
+                        ],
+                        "category": "Scratch",
+                        "subcategory": "游戏编程",
+                        "difficulty": "hard",
+                        "points": 25
+                    },
+                    {
+                        "id": 3002,
+                        "type": "programming",
+                        "title": "飞行的小猫",
+                        "image": "https://img.icons8.com/color/96/000000/flying-cat.png",
+                        "description": "实现小猫飞行控制的Scratch程序",
+                        "requirements": [
+                            "点击绿旗，背景换成Blue Sky 2",
+                            "点击绿旗，角色Cat Flying的初始位置为(X=-150,Y=120)，初始方向为90°，初始造型为'cat flying-a'",
+                            "点击绿旗，角色Clouds的初始方向为90°，移动到Cat Flying位置后向下移动80(y坐标减少80)，并且始终与Clouds保持这样的距离",
+                            "当按下向上键时，Cat Flying换成cat flying-b造型向上移动5",
+                            "当按下向下键时，Cat Flying换成cat flying-b造型向下移动5",
+                            "当按下向左键时，Cat Flying换成cat flying-a造型向左移动5",
+                            "当按下向右键时，Cat Flying换成cat flying-a造型向右移动5",
+                            "当碰到舞台边缘，停止全部脚本"
+                        ],
+                        "constraints": [
+                            "功能(1)写在背景代码区",
+                            "功能(2)(4)(5)(6)写在角色Cat Flying代码区",
+                            "功能(3)写在角色Clouds代码区",
+                            "角色Clouds、Cat Flying的方向始终为90°，不会在飞行的过程中改变方向"
+                        ],
+                        "category": "Scratch",
+                        "subcategory": "交互控制",
+                        "difficulty": "hard",
+                        "points": 25
+                    }
+                ],
+
+                // Scratch 2级 - 基础级题目
+                level2: [{
+                        id: 201,
+                        type: 'single',
+                        question: '在Scratch中，"重复执行"积木的作用是什么？',
+                        image: 'https://img.icons8.com/color/96/000000/loop.png',
+                        options: [
+                            '让代码重复执行多次',
+                            '让角色移动',
+                            '让角色说话',
+                            '让程序停止'
+                        ],
+                        answer: 0,
+                        explanation: '正确！"重复执行"积木可以让代码块重复执行。'
+                    },
+                    {
+                        id: 202,
+                        type: 'single',
+                        question: 'Scratch中，哪个积木可以让角色等待一段时间？',
+                        image: 'https://img.icons8.com/color/96/000000/clock.png',
+                        options: [
+                            '等待1秒',
+                            '移动10步',
+                            '说"你好"',
+                            '面向90度方向'
+                        ],
+                        answer: 0,
+                        explanation: '正确！"等待1秒"积木可以控制程序暂停执行的时间。'
+                    },
+                    {
+                        id: 203,
+                        type: 'true_false',
+                        question: '在Scratch中，"如果...那么"积木可以用来做条件判断。',
+                        image: 'https://img.icons8.com/color/96/000000/logic.png',
+                        options: ['正确', '错误'],
+                        answer: 0,
+                        explanation: '正确！"如果...那么"积木是条件判断语句，用于根据条件执行不同的代码。'
+                    }
+                ],
+
+                // Scratch 3级 - 进阶级题目
+                level3: [{
+                        id: 301,
+                        type: 'single',
+                        question: '在Scratch中，如何让角色跟随鼠标移动？',
+                        image: 'https://img.icons8.com/color/96/000000/mouse.png',
+                        options: [
+                            '面向鼠标指针 + 移动10步',
+                            '移动到鼠标指针',
+                            '说"跟随我"',
+                            '重复执行移动10步'
+                        ],
+                        answer: 1,
+                        explanation: '正确！使用"移动到鼠标指针"积木可以让角色直接移动到鼠标位置。'
+                    },
+                    {
+                        id: 302,
+                        type: 'single',
+                        question: 'Scratch中，"重复执行直到"积木与普通"重复执行"积木的区别是什么？',
+                        image: 'https://img.icons8.com/color/96/000000/loop-forever.png',
+                        options: [
+                            '可以在满足条件时停止循环',
+                            '执行速度更快',
+                            '可以重复更多次数',
+                            '没有区别'
+                        ],
+                        answer: 0,
+                        explanation: '正确！"重复执行直到"积木会在条件满足时自动停止循环。'
+                    },
+                    {
+                        id: 303,
+                        type: 'true_false',
+                        question: '在Scratch中，可以使用"广播"积木来让不同角色之间通信。',
+                        image: 'https://img.icons8.com/color/96/000000/wifi.png',
+                        options: ['正确', '错误'],
+                        answer: 0,
+                        explanation: '正确！"广播"和"当接收到广播"积木可以实现角色间的通信。'
+                    }
+                ],
+
+                // Scratch 4级 - 挑战级题目
+                level4: [{
+                        id: 401,
+                        type: 'single',
+                        question: '在Scratch中，如何实现角色的反弹效果？',
+                        image: 'https://img.icons8.com/color/96/000000/bounce.png',
+                        options: [
+                            '碰到边缘就反弹',
+                            '移动10步 + 等待1秒',
+                            '重复执行移动',
+                            '面向-90度方向'
+                        ],
+                        answer: 0,
+                        explanation: '正确！"碰到边缘就反弹"积木可以让角色在碰到舞台边缘时自动反弹。'
+                    },
+                    {
+                        id: 402,
+                        type: 'single',
+                        question: 'Scratch中，"变量"积木的主要作用是什么？',
+                        image: 'https://img.icons8.com/color/96/000000/variable.png',
+                        options: [
+                            '存储和管理数据',
+                            '让角色移动',
+                            '播放声音',
+                            '改变背景'
+                        ],
+                        answer: 0,
+                        explanation: '正确！变量用于存储和管理程序中的数据，如分数、生命值等。'
+                    },
+                    {
+                        id: 403,
+                        type: 'true_false',
+                        question: '在Scratch中，可以使用"克隆"积木来创建角色的多个副本。',
+                        image: 'https://img.icons8.com/color/96/000000/clone.png',
+                        options: ['正确', '错误'],
+                        answer: 0,
+                        explanation: '正确！"克隆自己"积木可以创建角色的副本，用于实现多角色协同等复杂功能。'
+                    }
+                ]
+            },
+            python: [{
+                    id: 101,
+                    type: 'single',
+                    question: 'Python中，打印"Hello World"的正确语句是？',
+                    image: 'https://img.icons8.com/color/96/000000/python.png',
+                    options: [
+                        'print("Hello World")',
+                        'echo "Hello World"',
+                        'console.log("Hello World")',
+                        'printf("Hello World")'
+                    ],
+                    answer: 0,
+                    explanation: '正确！Python使用print()函数来输出内容。'
+                },
+                {
+                    id: 102,
+                    type: 'true_false',
+                    question: 'Python是一种强类型语言。',
+                    image: 'https://img.icons8.com/color/96/000000/data.png',
+                    options: ['正确', '错误'],
+                    answer: 1,
+                    explanation: '错误！Python是一种动态类型语言，变量的类型可以在运行时改变。'
+                },
+                {
+                    id: 103,
+                    type: 'single',
+                    question: 'Python中定义函数的关键字是？',
+                    image: 'https://img.icons8.com/color/96/000000/code.png',
+                    options: [
+                        'def',
+                        'function',
+                        'func',
+                        'define'
+                    ],
+                    answer: 0,
+                    explanation: '正确！Python使用def关键字来定义函数。'
+                }
+            ],
+            cpp: [{
+                    id: 201,
+                    type: 'single',
+                    question: 'C++中，主函数的正确声明是？',
+                    image: 'https://img.icons8.com/color/96/000000/c-plus-plus-logo.png',
+                    options: [
+                        'int main()',
+                        'void main()',
+                        'main()',
+                        'function main()'
+                    ],
+                    answer: 0,
+                    explanation: '正确！C++中主函数应该返回int类型。'
+                },
+                {
+                    id: 202,
+                    type: 'true_false',
+                    question: 'C++是一种面向对象的编程语言。',
+                    image: 'https://img.icons8.com/color/96/000000/object.png',
+                    options: ['正确', '错误'],
+                    answer: 0,
+                    explanation: '正确！C++支持面向对象编程范式。'
+                },
+                {
+                    id: 203,
+                    type: 'single',
+                    question: 'C++中，用于动态分配内存的运算符是？',
+                    image: 'https://img.icons8.com/color/96/000000/memory.png',
+                    options: [
+                        'new',
+                        'malloc',
+                        'allocate',
+                        'memory'
+                    ],
+                    answer: 0,
+                    explanation: '正确！C++使用new运算符进行动态内存分配。'
+                }
+            ]
+        };
+
+        // 当前选中的题目数据
+        let quizData = [];
+        let currentCategory = '';
+
+        // 全局状态管理
+        const appState = {
+            currentQuestionIndex: 0,
+            userAnswers: [],
+            score: 0,
+
+            reset() {
+                this.currentQuestionIndex = 0;
+                this.userAnswers = [];
+                this.score = 0;
+            },
+
+            saveAnswer(questionId, userAnswer) {
+                this.userAnswers.push({
+                    questionId,
+                    userAnswer,
+                    isCorrect: this.checkAnswer(questionId, userAnswer)
+                });
+
+                if (this.userAnswers[this.userAnswers.length - 1].isCorrect) {
+                    this.score++;
+                }
+            },
+
+            checkAnswer(questionId, userAnswer) {
+                const question = quizData.find(q => q.id === questionId);
+                if (!question) return false;
+
+                console.log('检查答案:', {
+                    questionId,
+                    userAnswer,
+                    questionAnswer: question.answer,
+                    questionType: question.type
+                });
+
+                // 现在只处理单选题和判断题，userAnswer是包含一个元素的数组
+                return userAnswer[0] === question.answer;
+            },
+
+            getProgress() {
+                return (this.currentQuestionIndex / quizData.length) * 100;
+            }
+        };
+
+        // 页面组件
+        const pages = {
+            // 级别选择页面 - Scratch 1-4级，其他类别1-8级
+            levelSelectPage() {
+                const app = document.getElementById('app');
+
+                // 根据当前类别获取显示名称
+                const categoryName = currentCategory === 'scratch' ? 'Scratch' :
+                    currentCategory === 'python' ? 'Python' : 'C++';
+
+                // 根据类别配置不同的级别数据
+                let levels;
+                if (currentCategory === 'scratch') {
+                    // Scratch只有1-4级
+                    levels = [{
+                            level: 1,
+                            color: 'green',
+                            name: '入门级',
+                            desc: '基础概念，适合初学者'
+                        },
+                        {
+                            level: 2,
+                            color: 'blue',
+                            name: '基础级',
+                            desc: '掌握基本编程逻辑'
+                        },
+                        {
+                            level: 3,
+                            color: 'yellow',
+                            name: '进阶级',
+                            desc: '综合应用编程知识'
+                        },
+                        {
+                            level: 4,
+                            color: 'red',
+                            name: '挑战级',
+                            desc: '高级编程技巧挑战'
+                        }
+                    ];
+                } else {
+                    // Python和C++有1-8级
+                    levels = [{
+                            level: 1,
+                            color: 'green',
+                            name: '入门级',
+                            desc: '基础概念入门'
+                        },
+                        {
+                            level: 2,
+                            color: 'blue',
+                            name: '基础级',
+                            desc: '基本语法掌握'
+                        },
+                        {
+                            level: 3,
+                            color: 'cyan',
+                            name: '进阶级',
+                            desc: '核心概念应用'
+                        },
+                        {
+                            level: 4,
+                            color: 'yellow',
+                            name: '提高级',
+                            desc: '综合技能提升'
+                        },
+                        {
+                            level: 5,
+                            color: 'orange',
+                            name: '挑战级',
+                            desc: '高级编程技巧'
+                        },
+                        {
+                            level: 6,
+                            color: 'red',
+                            name: '专家级',
+                            desc: '复杂问题解决'
+                        },
+                        {
+                            level: 7,
+                            color: 'purple',
+                            name: '大师级',
+                            desc: '算法思维训练'
+                        },
+                        {
+                            level: 8,
+                            color: 'indigo',
+                            name: '创新级',
+                            desc: '创新应用开发'
+                        }
+                    ];
+                }
+
+                app.innerHTML = `
+                    <div class="bg-white rounded-3xl p-10 card-shadow">
+                        <div class="text-center mb-10">
+                            <h2 class="text-4xl font-bold text-gray-800 mb-4">选择${categoryName}难度级别</h2>
+                            <p class="text-xl text-gray-600">从简单到困难，循序渐进提升编程能力！</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+                            ${levels.map(level => `
+                                <div class="bg-gradient-to-br from-${level.color}-400 to-${level.color}-600 rounded-2xl p-6 text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg" onclick="selectLevel(${level.level})">
+                                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <span class="text-2xl font-bold text-${level.color}-600">${level.level}</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white mb-1">${level.name}</h3>
+                                    <p class="text-white opacity-90 text-xs">${level.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-10 text-center">
+                            <button id="back-to-home-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-4 px-12 rounded-xl btn-shadow text-xl">
+                                <i class="fa fa-arrow-left mr-2"></i> 返回首页
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // 添加返回首页按钮事件
+                setTimeout(() => {
+                    const backBtn = document.getElementById('back-to-home-btn');
+                    if (backBtn) {
+                        backBtn.addEventListener('click', function () {
+                            router.navigateTo('homePage');
+                        });
+                    }
+                }, 100);
+            },
+
+            // 首页 - 全新风格设计
+            homePage() {
+                const app = document.getElementById('app');
+                app.innerHTML = `
+                    <div class="space-y-12">
+                        <!-- 顶部横幅 - 科技风格 -->
+                        <div class="relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 opacity-90"></div>
+                            <!-- 装饰性代码背景 -->
+                            <div class="absolute inset-0 opacity-10">
+                                <div class="text-[8px] text-white font-mono leading-none">
+                                    ${Array(20).fill().map(() => 
+                                        Array(100).fill().map(() => 
+                                            Math.random() > 0.5 ? '1' : '0'
+                                        ).join('')
+                                    ).join('<br>')}
+                                </div>
+                            </div>
+                            <div class="relative z-10 rounded-3xl p-16 text-center">
+                                <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+                                    <div class="w-32 h-32 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white border-opacity-30">
+                                        <img src="https://img.icons8.com/color/128/000000/brain-circuit.png" alt="Logo" class="w-24 h-24 animate-pulse-fast">
+                                    </div>
+                                    <div>
+                                        <h1 class="text-7xl font-bold mb-4 text-white text-shadow">
+                                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-pink-300">CodeQuiz</span>
+                                        </h1>
+                                        <p class="text-3xl text-white text-opacity-90 font-light">
+                                            编程知识挑战平台
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-xl text-white text-opacity-80 max-w-2xl mx-auto">
+                                    选择你要挑战的编程语言，开启编程知识之旅！支持GESP和电子协会
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 编程语言类别 - 卡片风格 -->
+                        <div>
+                            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">选择编程语言</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <!-- Scratch -->
+                                <div class="group" onclick="selectCategory('scratch')">
+                                    <div class="bg-white rounded-2xl overflow-hidden card-shadow transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl">
+                                        <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 relative overflow-hidden">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <i class="fa fa-cubes text-white text-8xl opacity-20"></i>
+                                            </div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                                                    <i class="fa fa-cubes text-orange-500 text-4xl"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-8">
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Scratch</h3>
+                                            <p class="text-gray-600 mb-6">图形化编程，适合初学者入门</p>
+                                            <div class="flex items-center text-sm text-orange-500 font-medium">
+                                                <span>开始挑战</span>
+                                                <i class="fa fa-arrow-right ml-2 transform transition-transform group-hover:translate-x-1"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Python -->
+                                <div class="group" onclick="selectCategory('python')">
+                                    <div class="bg-white rounded-2xl overflow-hidden card-shadow transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl">
+                                        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 relative overflow-hidden">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <i class="fa fa-python text-white text-8xl opacity-20"></i>
+                                            </div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                                                    <i class="fa fa-python text-blue-600 text-4xl"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-8">
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Python</h3>
+                                            <p class="text-gray-600 mb-6">简洁易学，人工智能首选语言</p>
+                                            <div class="flex items-center text-sm text-blue-600 font-medium">
+                                                <span>开始挑战</span>
+                                                <i class="fa fa-arrow-right ml-2 transform transition-transform group-hover:translate-x-1"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- C++ -->
+                                <div class="group" onclick="selectCategory('cpp')">
+                                    <div class="bg-white rounded-2xl overflow-hidden card-shadow transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl">
+                                        <div class="h-48 bg-gradient-to-br from-purple-600 to-indigo-800 relative overflow-hidden">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <i class="fa fa-code text-white text-8xl opacity-20"></i>
+                                            </div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                                                    <i class="fa fa-code text-indigo-800 text-4xl"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-8">
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-3">C++</h3>
+                                            <p class="text-gray-600 mb-6">高性能语言，算法竞赛首选</p>
+                                            <div class="flex items-center text-sm text-indigo-600 font-medium">
+                                                <span>开始挑战</span>
+                                                <i class="fa fa-arrow-right ml-2 transform transition-transform group-hover:translate-x-1"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 特色介绍 -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-cyan-50 to-blue-100 rounded-2xl p-8 border border-blue-200">
+                                <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                                    <i class="fa fa-graduation-cap text-white text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">考级辅导</h3>
+                                <p class="text-gray-600">专业的GESP和电子协会考级辅导，帮助你顺利通过编程等级考试</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 border border-pink-200">
+                                <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                                    <i class="fa fa-trophy text-white text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">分级调挑战</h3>
+                                <p class="text-gray-600">从入门到精通的分级题库，循序渐进提升你的编程技能</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 border border-emerald-200">
+                                <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                                    <i class="fa fa-lightbulb-o text-white text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">即时反馈</h3>
+                                <p class="text-gray-600">每道题都有详细解析，帮助你理解编程概念和解题思路</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 底部信息 -->
+                        <div class="text-center text-gray-500 text-sm pt-8 border-t border-gray-200">
+                            <p>© 2024 CodeQuiz 编程知识挑战平台 | 专注少儿编程教育</p>
+                        </div>
+                    </div>
+                `;
+            },
+
+            // 答题页面
+            quizPage() {
+                const currentQuestion = quizData[appState.currentQuestionIndex];
+                const app = document.getElementById('app');
+
+                // 先渲染选项，避免this上下文问题
+                const optionsHtml = pages.renderOptions(currentQuestion);
+
+                app.innerHTML = `
+                    <div class="bg-white rounded-3xl p-10 card-shadow">
+                        <!-- 顶部信息栏 -->
+                        <div class="flex justify-between items-center mb-8">
+                            <div class="text-2xl font-bold text-gray-800">
+                                问题 ${appState.currentQuestionIndex + 1}/${quizData.length}
+                            </div>
+                            <div class="text-xl text-gray-600">
+                                ${currentQuestion.type === 'single' ? '单选题' : '判断题'}
+                            </div>
+                        </div>
+                        
+                        <!-- 进度条 -->
+                        <div class="mb-10">
+                            <div class="w-full bg-gray-200 rounded-full h-6">
+                                <div class="bg-primary h-6 rounded-full transition-all duration-500" style="width: ${appState.getProgress()}%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 问题卡片 -->
+                        <div class="mb-10">
+                            <div class="flex items-start mb-8">
+                                <div class="bg-blue-100 p-4 rounded-2xl mr-6">
+                                    <img src="${currentQuestion.image}" alt="Question" class="w-24 h-24">
+                                </div>
+                                <div class="flex-1">
+                                    <h2 class="text-3xl font-bold text-gray-800 mb-4">${currentQuestion.question}</h2>
+
+                                </div>
+                            </div>
+                            
+                            <!-- 选项区域 -->
+                            <div id="options-container" class="space-y-4 max-w-3xl">
+                                ${optionsHtml}
+                            </div>
+                        </div>
+                        
+                        <!-- 操作按钮 -->
+                        <div class="flex justify-between">
+                            <button id="back-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-4 px-8 rounded-xl btn-shadow text-xl">
+                                <i class="fa fa-arrow-left mr-2"></i> 返回
+                            </button>
+                            <button id="next-btn" class="bg-primary hover:bg-blue-600 text-white font-bold py-4 px-12 rounded-xl btn-shadow opacity-50 cursor-not-allowed text-xl" disabled>
+                                下一题 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // 使用pages对象调用方法，避免this上下文问题
+                pages.setupQuizEventListeners(currentQuestion);
+            },
+
+            // 渲染选项 - 大屏版（只保留单选和判断题）
+            renderOptions(question) {
+                // 单选题和判断题都使用单选按钮
+                return question.options.map((option, index) => `
+                    <label class="flex items-center p-6 border-2 border-gray-200 rounded-xl cursor-pointer hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.02]">
+                        <div class="w-8 h-8 border-2 border-gray-300 rounded-full flex items-center justify-center mr-4 transition-colors">
+                            <input type="radio" name="question_${question.id}" value="${index}" class="hidden peer">
+                            <div class="w-4 h-4 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                        </div>
+                        <span class="text-xl font-medium text-gray-800">${option}</span>
+                    </label>
+                `).join('');
+            },
+
+            // 设置答题页面事件监听
+            setupQuizEventListeners(question) {
+                const optionsContainer = document.getElementById('options-container');
+                const nextBtn = document.getElementById('next-btn');
+                const backBtn = document.getElementById('back-btn');
+
+                let selectedOptions = [];
+                let answered = false;
+
+                // 选项点击事件
+                optionsContainer.addEventListener('change', (e) => {
+                    if (answered) return;
+
+                    // 现在只处理单选题和判断题
+                    selectedOptions = [parseInt(e.target.value)];
+
+                    // 启用下一题按钮
+                    if (selectedOptions.length > 0) {
+                        nextBtn.disabled = false;
+                        nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    } else {
+                        nextBtn.disabled = true;
+                        nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    }
+                });
+
+                // 下一题按钮点击事件
+                nextBtn.addEventListener('click', () => {
+                    if (answered || selectedOptions.length === 0) return;
+
+                    answered = true;
+                    pages.showAnswerFeedback(question, selectedOptions);
+
+                    // 保存答案
+                    appState.saveAnswer(question.id, selectedOptions);
+
+                    // 跳转逻辑现在在弹窗中处理
+                });
+
+                // 移除之前可能存在的事件监听器
+                const newBackBtn = backBtn.cloneNode(true);
+                backBtn.parentNode.replaceChild(newBackBtn, backBtn);
+
+                // 重新获取按钮引用
+                const updatedBackBtn = document.getElementById('back-btn');
+
+                // 返回按钮点击事件 - 使用新的按钮引用
+                updatedBackBtn.addEventListener('click', function () {
+                    console.log('返回按钮被点击');
+
+                    // 直接返回首页，不显示确认对话框
+                    console.log('正在返回首页...');
+
+                    // 重置应用状态
+                    appState.reset();
+
+                    // 根据当前类别决定返回路径
+                    if (currentCategory === 'scratch') {
+                        router.navigateTo('levelSelectPage');
+                    } else {
+                        router.navigateTo('homePage');
+                    }
+                });
+
+                // 确保按钮样式正确
+                updatedBackBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                updatedBackBtn.classList.add('cursor-pointer');
+                updatedBackBtn.style.pointerEvents = 'auto';
+                updatedBackBtn.disabled = false;
+            },
+
+            // 显示答案反馈 - 使用弹窗
+            showAnswerFeedback(question, userAnswer) {
+                const isCorrect = appState.checkAnswer(question.id, userAnswer);
+
+                // 创建弹窗
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-3xl p-10 max-w-lg w-full mx-4 transform transition-all duration-300 scale-110">
+                        <div class="text-center mb-6">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-${isCorrect ? 'success' : 'danger'} flex items-center justify-center">
+                                <i class="fa fa-${isCorrect ? 'check' : 'times'}-circle text-white text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">${isCorrect ? '回答正确！' : '回答错误'}</h3>
+                            <p class="text-lg text-gray-600">${question.explanation}</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                            <p class="text-gray-700 mb-2"><strong>你的答案：</strong>${question.options[userAnswer[0]]}</p>
+                            <p class="text-gray-700"><strong>正确答案：</strong>${question.options[question.answer]}</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 mb-4">将在 <span id="countdown" class="font-bold text-primary">3</span> 秒后自动跳转到下一题</p>
+                            <button id="next-now-btn" class="bg-primary hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-xl btn-shadow text-lg">
+                                立即下一题
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                document.body.appendChild(modal);
+
+                // 倒计时功能
+                let countdown = 3;
+                const countdownEl = modal.querySelector('#countdown');
+                const nextNowBtn = modal.querySelector('#next-now-btn');
+
+                const timer = setInterval(() => {
+                    countdown--;
+                    countdownEl.textContent = countdown;
+
+                    if (countdown <= 0) {
+                        clearInterval(timer);
+                        document.body.removeChild(modal);
+                        goToNextQuestion();
+                    }
+                }, 1000);
+
+                // 立即下一题按钮
+                nextNowBtn.addEventListener('click', () => {
+                    clearInterval(timer);
+                    document.body.removeChild(modal);
+                    goToNextQuestion();
+                });
+
+                // 跳转到下一题的函数
+                function goToNextQuestion() {
+                    appState.currentQuestionIndex++;
+                    if (appState.currentQuestionIndex < quizData.length) {
+                        router.navigateTo('quizPage');
+                    } else {
+                        router.navigateTo('resultPage');
+                    }
+                }
+            },
+
+            // 结果页面
+            resultPage() {
+                const app = document.getElementById('app');
+                const correctCount = appState.score;
+                const totalCount = quizData.length;
+                const percentage = Math.round((correctCount / totalCount) * 100);
+
+                let message, icon, color;
+
+                if (percentage >= 80) {
+                    message = '太棒了！你是编程小天才！';
+                    icon = 'trophy';
+                    color = 'success';
+                } else if (percentage >= 60) {
+                    message = '做得不错！继续加油！';
+                    icon = 'star';
+                    color = 'primary';
+                } else {
+                    message = '别灰心，多练习就能进步！';
+                    icon = 'heart';
+                    color = 'secondary';
+                }
+
+                app.innerHTML = `
+                    <div>
+                        <!-- 结果总览卡片 -->
+                        <div class="bg-white rounded-3xl p-10 card-shadow mb-8">
+                            <div class="grid grid-cols-2 gap-8 items-center">
+                                <!-- 左侧：统计信息 -->
+                                <div>
+                                    <h1 class="text-5xl font-bold text-gray-800 mb-4">${currentCategory === 'scratch' ? 'Scratch' : currentCategory === 'python' ? 'Python' : 'C++'}答题完成！</h1>
+                                    <p class="text-2xl text-gray-600 mb-8">${message}</p>
+                                    
+                                    <!-- 主要统计数据 -->
+                                    <div class="mb-10">
+                                        <div class="text-8xl font-bold text-${color} mb-4">${percentage}%</div>
+                                        <p class="text-xl text-gray-600">正确率</p>
+                                    </div>
+                                    
+                                    <!-- 详细统计 -->
+                                    <div class="grid grid-cols-3 gap-6 mb-8">
+                                        <div class="bg-green-50 rounded-2xl p-6 text-center">
+                                            <div class="text-4xl font-bold text-success mb-2">${correctCount}</div>
+                                            <p class="text-gray-700">正确题数</p>
+                                        </div>
+                                        <div class="bg-red-50 rounded-2xl p-6 text-center">
+                                            <div class="text-4xl font-bold text-danger mb-2">${totalCount - correctCount}</div>
+                                            <p class="text-gray-700">错误题数</p>
+                                        </div>
+                                        <div class="bg-blue-50 rounded-2xl p-6 text-center">
+                                            <div class="text-4xl font-bold text-primary mb-2">${totalCount}</div>
+                                            <p class="text-gray-700">总题数</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 操作按钮 -->
+                                    <div class="flex space-x-4">
+                                        <button id="retry-btn" class="bg-primary hover:bg-blue-600 text-white text-xl font-bold py-4 px-10 rounded-xl btn-shadow transition-all duration-300 transform hover:scale-105 flex-1">
+                                            <i class="fa fa-refresh mr-2"></i> 重新挑战
+                                        </button>
+                                        <button id="home-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 text-xl font-bold py-4 px-10 rounded-xl btn-shadow transition-all duration-300 flex-1">
+                                            <i class="fa fa-home mr-2"></i> 返回首页
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- 右侧：成就展示 -->
+                                <div class="flex justify-center">
+                                    <div class="relative">
+                                        <!-- 成就徽章 -->
+                                        <div class="w-64 h-64 rounded-full bg-${color} flex items-center justify-center animate-bounce-short">
+                                            <i class="fa fa-${icon} text-white text-9xl"></i>
+                                        </div>
+                                        <!-- 装饰元素 -->
+                                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse-fast">
+                                            <i class="fa fa-star text-white text-3xl"></i>
+                                        </div>
+                                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center animate-pulse-fast" style="animation-delay: 0.5s;">
+                                            <i class="fa fa-trophy text-white text-2xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 错题解析 -->
+                        ${pages.renderWrongAnswers()}
+                        
+
+                    </div>
+                `;
+
+                document.getElementById('retry-btn').addEventListener('click', () => {
+                    appState.reset();
+                    router.navigateTo('quizPage');
+                });
+
+                document.getElementById('home-btn').addEventListener('click', () => {
+                    router.navigateTo('homePage');
+                });
+            },
+
+            // 渲染错题解析
+            renderWrongAnswers() {
+                const wrongAnswers = appState.userAnswers.filter(a => !a.isCorrect);
+
+                if (wrongAnswers.length === 0) {
+                    return '';
+                }
+
+                return `
+                    <div class="bg-white rounded-2xl p-6 card-shadow">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">错题解析</h3>
+                        <div class="space-y-6">
+                            ${wrongAnswers.map(answer => {
+                                const question = quizData.find(q => q.id === answer.questionId);
+                                return `
+                                    <div class="border-l-4 border-danger pl-4">
+                                        <h4 class="font-bold text-gray-800 mb-2">${question.question}</h4>
+                                        <p class="text-danger mb-2">你的答案: ${this.formatUserAnswer(question, answer.userAnswer)}</p>
+                                        <p class="text-success mb-2">正确答案: ${this.formatCorrectAnswer(question)}</p>
+                                        <p class="text-gray-600">${question.explanation}</p>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            },
+
+            // 格式化用户答案
+            formatUserAnswer(question, userAnswer) {
+                if (question.type === 'multiple') {
+                    return userAnswer.map(index => question.options[index]).join(', ');
+                }
+                return question.options[userAnswer[0]];
+            },
+
+            // 格式化正确答案
+            formatCorrectAnswer(question) {
+                if (question.type === 'multiple') {
+                    return question.answer.map(index => question.options[index]).join(', ');
+                }
+                return question.options[question.answer];
+            }
+        };
+
+        // 通用级别选择函数 - 支持所有类别1-8级
+        function selectLevel(level) {
+            console.log('选择级别:', level, '类别:', currentCategory);
+
+            // 根据当前类别和级别获取题目数据
+            const levelKey = `level${level}`;
+            if (allQuizData[currentCategory] && allQuizData[currentCategory][levelKey]) {
+                // 按级别分类获取题目（Scratch、Python、C++都支持）
+                quizData = allQuizData[currentCategory][levelKey] || [];
+            } else {
+                // 如果该级别没有题目，使用默认题目
+                quizData = allQuizData[currentCategory] || [];
+            }
+
+            // 添加级别信息到题目数据中
+            quizData = quizData.map(q => ({
+                ...q,
+                level: level
+            }));
+
+            // 进入答题页面
+            router.navigateTo('quizPage');
+        }
+
+        // 类别选择函数 - 添加考级类型选择弹窗
+        function selectCategory(category) {
+            console.log('选择类别:', category);
+            currentCategory = category;
+            appState.reset();
+
+            // 显示选中效果
+            document.querySelectorAll('[onclick^="selectCategory"]').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-white', 'scale-105');
+            });
+            event.target.closest('[onclick^="selectCategory"]').classList.add('ring-4', 'ring-white', 'scale-105');
+
+            // 延迟后显示考级类型选择弹窗
+            setTimeout(() => {
+                showExamTypeModal();
+            }, 500);
+        }
+
+        // 显示考级类型选择弹窗
+        function showExamTypeModal() {
+            // 创建弹窗容器
+            const modalContainer = document.createElement('div');
+            modalContainer.className = 'fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60';
+            modalContainer.id = 'exam-type-modal';
+
+            // 获取当前类别名称
+            const categoryName = currentCategory === 'scratch' ? 'Scratch' :
+                currentCategory === 'python' ? 'Python' : 'C++';
+
+            modalContainer.innerHTML = `
+                <div class="bg-white rounded-3xl p-10 max-w-md w-full mx-4 transform transition-all duration-300 scale-110">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">选择${categoryName}考级类型</h3>
+                        <p class="text-xl text-gray-600">请选择您要参加的考级类型</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- GESP考级选项 -->
+                        <button onclick="selectExamType('gesp')" 
+                                class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xl font-bold py-4 px-8 rounded-xl btn-shadow hover:shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
+                            <div class="flex items-center justify-center">
+                                <i class="fa fa-graduation-cap text-2xl mr-4"></i>
+                                <span>GESP考级</span>
+                            </div>
+                        </button>
+                        
+                        <!-- 电子协会考级选项 -->
+                        <button onclick="selectExamType('ceac')" 
+                                class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white text-xl font-bold py-4 px-8 rounded-xl btn-shadow hover:shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
+                            <div class="flex items-center justify-center">
+                                <i class="fa fa-certificate text-2xl mr-4"></i>
+                                <span>电子协会考级</span>
+                            </div>
+                        </button>
+                        
+                        <!-- 取消按钮 -->
+                        <button onclick="closeExamTypeModal()" 
+                                class="w-full bg-gray-200 text-gray-800 text-lg font-bold py-3 px-8 rounded-xl hover:bg-gray-300 transition-colors duration-300">
+                            取消
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // 添加到页面
+            document.body.appendChild(modalContainer);
+
+            // 添加动画效果
+            setTimeout(() => {
+                modalContainer.querySelector('div').classList.remove('scale-110');
+                modalContainer.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+        // 选择考级类型
+        function selectExamType(examType) {
+            console.log('选择考级类型:', examType, '类别:', currentCategory);
+
+            // 保存考级类型
+            window.currentExamType = examType;
+
+            // 关闭弹窗
+            closeExamTypeModal();
+
+            // 跳转到级别选择页面
+            router.navigateTo('levelSelectPage');
+        }
+
+        // 关闭考级类型选择弹窗
+        function closeExamTypeModal() {
+            const modal = document.getElementById('exam-type-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('应用初始化');
+
+            // 注册路由
+            router.addRoute('homePage', pages.homePage);
+            router.addRoute('levelSelectPage', pages.levelSelectPage);
+            router.addRoute('quizPage', pages.quizPage);
+            router.addRoute('resultPage', pages.resultPage);
+
+            // 导航到首页
+            setTimeout(() => {
+                router.navigateTo('homePage');
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
