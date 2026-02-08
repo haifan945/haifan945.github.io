@@ -1192,3 +1192,6 @@ int main() {
     },
   },
 };
+
+// 暴露给window对象，使knowledge.html能够访问
+window.knowledgeData = knowledgeData;
