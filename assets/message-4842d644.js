@@ -1,0 +1,1 @@
+import{ab as t,ae as a}from"./index-bc0a5eae.js";const c=(s,e="提示",o={})=>a.confirm(s,e,{confirmButtonText:"确定",cancelButtonText:"取消",type:"warning",...o}),r=(s,e="success")=>{t({message:s,type:e})};export{c,r as s};
