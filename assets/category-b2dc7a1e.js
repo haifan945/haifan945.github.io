@@ -1,0 +1,1 @@
+import{s as t}from"./request-afa285ff.js";async function o(e){return t({url:"/categories",method:"GET",params:e})}async function n(e){return t({url:"/categories",method:"POST",data:e})}async function s(e,r){return t({url:`/categories/${e}`,method:"PUT",data:r})}async function c(e){return t({url:`/categories/${e}`,method:"DELETE"})}export{n as c,c as d,o as g,s as u};

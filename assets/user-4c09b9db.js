@@ -1,0 +1,1 @@
+import{s as r}from"./request-afa285ff.js";async function u(){return r({url:"/users",method:"GET"})}async function n(e){return r({url:"/users",method:"POST",data:e})}async function a(e,s){return r({url:`/users/${e}`,method:"PUT",data:s})}async function o(e){return r({url:`/users/${e}`,method:"DELETE"})}export{n as a,o as d,u as g,a as u};
